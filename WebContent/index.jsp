@@ -10,7 +10,7 @@
 	<div class="jumbotron center-block text-center">
 		<h1>struts2 + hibernate + spring</h1>
 		<p>struts-2.3.16.2 + spring-framework-4.0.4.RELEASE + hibernate-release-4.3.5.Final</p>
-		<p><a class="btn btn-primary" href="javascript: ;">GO</a></p>ssssyyyyyyyyyyyyllll
+		<p><a class="btn btn-primary" href="javascript: ;">GO</a></p>ssssyyyyyyyyyyyylllooo
 	</div>
 </body>
 </html>
