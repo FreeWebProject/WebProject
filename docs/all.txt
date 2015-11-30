@@ -1,0 +1,15 @@
+搭建ssh框架，托管github
+
+2015-11-30
+开始搭建ssh框架，托管github  https://github.com/freedomPC/WebProject/
+struts2  struts-2.3.16.2
+hibernate  hibernate-release-4.3.5.Final
+spring  spring-framework-4.0.4.RELEASE
+
+添加jar包
+
+添加web.xml，只添加了描述我首页
+添加首页index.xml
+成功运行起来
+
+添加bootstrap  bootstrap-3.3.5
