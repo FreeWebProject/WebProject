@@ -16,7 +16,7 @@
 <meta http-equiv="description" content="This is my page">
 
 <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="common/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="common/bootstrap/css/bootstrap.css">xxxxxxxx
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="common/script/jquery/jquery-2.1.4.js"></script>
