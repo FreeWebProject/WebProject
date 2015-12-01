@@ -1,0 +1,9 @@
+首先确定结构：上中下，中间为左右。
+全部内容全屏显示，不出现全屏的滚动条。
+1、设置上中下三个div
+2、中间的div设置position:absolute;使之固定在中间部位，给height:85%;顶部留白top: 10%。
+3、上面的div设置position:fixed;固定在顶部：top:0;给height: 10%；与中间部分接上。
+4、下面的div设置position:fixed;固定在底部：bottom:0;给height:5%; 这样上中下三个div的height加起来为100%。
+5、中间div里面加左右两个div，分别为:float:left; float:right。宽度分别为: width: 15%; width: 85;这样总体结构就已经完成。
+6、在每个div里面加一个iframe关联一个页面。
+7、iframe的样式为：width:100%; height:100%; border:0; 其中上下两个div的iframe不允许有滚动条，其余的iframe滚动条自适应

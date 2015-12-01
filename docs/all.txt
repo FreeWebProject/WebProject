@@ -13,5 +13,13 @@ spring  spring-framework-4.0.4.RELEASE
 成功运行起来
 
 添加bootstrap  bootstrap-3.3.5
+添加jquery  jquery-2.1.4
 
-xxxxxx
+2015-12-01
+尝试并初步会使用github多人合作开发
+
+建立项目主体页面，分为上中下结构，中间分为左右结构
+
+搭建ssh，struts.xml  applicationContext.xml  web.xml
+
+注意：spring已经不再为hibernate4提供daoSupport了
