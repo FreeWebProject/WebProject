@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.ssh.dao.UserDao;
 import com.ssh.model.User;
 
-@Service
 @Component( value = "userDao" )
 public class UserDaoImpl implements UserDao {
 	
