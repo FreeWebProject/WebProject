@@ -4,6 +4,10 @@
 <head>
 <%@ include file="/common/common.jsp" %>
 <title>foot page</title>
+<style type="text/css">
+	html,body{ height: 100%; }
+	.container-fluid,.page-header,.page-header h1{ height: 100%; margin: 0; padding: 0; }
+</style>
 </head>
 <body>
 	<div class="container-fluid bg-info">

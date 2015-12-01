@@ -4,9 +4,12 @@
 <head>
 <%@ include file="/common/common.jsp" %>
 <title>foot page</title>
+<style type="text/css">
+	html,body,.container-fluid{ height: 100%; }
+</style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid bg-success">
 		左侧菜单
 	</div>
 </body>
