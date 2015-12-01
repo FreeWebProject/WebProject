@@ -76,7 +76,7 @@
 	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
-            <tx:method name="save" propagation="REQUIRED" />
+            <tx:method name="save*" propagation="REQUIRED" />
             <tx:method name="userExist" propagation="REQUIRED" />
 
             <!-- hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
@@ -95,7 +95,7 @@
     	只对业务逻辑层实施事务   实施txAdvice的事务
     -->
     <aop:config expose-proxy="true">
-        <aop:pointcut id="txPointcut" expression="execution(* com.ssh.service..*.*(..))" />
+        <aop:pointcut id="txPointcut" expression="execution(* com.ssh.dao..*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
     
