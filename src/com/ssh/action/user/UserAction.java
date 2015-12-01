@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.dao.UserDao;
+import com.ssh.dao.impl.HibernateUtilImpl;
 import com.ssh.model.User;
+import com.ssh.util.ActionUtil;
 
 /*
  * @Component --- spring注解，将这个类交给spring来管理  value 为他的名字
@@ -20,9 +21,8 @@ import com.ssh.model.User;
 @Scope( value = "prototype" )
 @Namespace( value = "/user" )
 @SuppressWarnings("serial")
-public class UserAction extends ActionSupport {
+public class UserAction extends ActionUtil {
 
-	private UserDao userDao ;
 	private User user ;
 	
 	/*
@@ -34,7 +34,7 @@ public class UserAction extends ActionSupport {
 		results = { @Result( name = "success", location = "/index.jsp" ), @Result( name = "error", location = "/error.jsp" ) }
 	)
 	public String saveOrUpdate() {
-		userDao.saveOrUpdate( user ) ;
+		hibernateUtil.saveOrUpdate( user ) ;
 		
 		return SUCCESS ;
 	}
@@ -47,13 +47,10 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
 
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
+	@Override
 	@Autowired
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
+	public void setHibernateUtil(HibernateUtilImpl hibernateUtil) {
+		this.hibernateUtil = hibernateUtil;
 	}
 	
 }
