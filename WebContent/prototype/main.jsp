@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="foot">
-			<iframe src="prototype/foot.jsp"></iframe>
+			<iframe src="prototype/foot.jsp" scrolling="no"></iframe>
 		</div>
 	</div>
 </body>
