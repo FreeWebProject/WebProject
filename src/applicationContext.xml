@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- 
+	  dataSource 
+	  dbcp的dataSource可以产生connection，用来连接数据库
+	  连接mysql的时候，应该解决中文编码问题  ?useUnicode=true&amp;characterEncoding=UTF-8
+	-->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/project?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<!-- 
+		SessionFactory
+		SessionFactory的bean，用来产生sessionFactory
+		并且将dataSource注入给SessionFactory
+		后面加上hibernate的配置信息 
+	-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
+				<!-- 注意这个设置,设置成thread会报错   createQuery is not valid without active transaction -->
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.ssh.model</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 
+		代理 
+		用来使用spring aop的annotation形式
+	-->
+ 	<aop:aspectj-autoproxy />
+ 	
+	<!-- 
+		定义事务管理器 
+		并将sessionFactory注入
+	-->
+ 	<bean id="txManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+  		<property name="sessionFactory" ref="sessionFactory" />
+ 	</bean>
+ 	
+ 	<!-- 
+ 		申明annotation 加载事务驱动 
+ 		在指定方法上加上事务驱动，不用写session.getTransaction.begin() ;  session.getTransaction.commit() ;
+ 	-->
+	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="save" propagation="REQUIRED" />
+            <tx:method name="userExist" propagation="REQUIRED" />
+
+            <!-- hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="count*" propagation="REQUIRED" read-only="true" />
+
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="list*" propagation="REQUIRED" read-only="true" />
+
+            <tx:method name="query*" read-only="true" />	<!-- 需要delete的方法，read-only不能为true -->
+        </tx:attributes>
+    </tx:advice>
+    
+    <!-- 
+    	AOP配置
+    	只对业务逻辑层实施事务   实施txAdvice的事务
+    -->
+    <aop:config expose-proxy="true">
+        <aop:pointcut id="txPointcut" expression="execution(* com.ssh.service..*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    
+	<!-- 自动扫描包 -->
+	<context:annotation-config />
+ 	<context:component-scan base-package="com.ssh.*" annotation-config="true"/>
+</beans>
