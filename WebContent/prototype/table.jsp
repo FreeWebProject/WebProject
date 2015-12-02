@@ -61,7 +61,7 @@
   	  <div class="form">
   	  	<h1>表单</h1>
   	  	<form  class="form-horizontal">
-  	  		<div class="form-group">
+  	  		<div class="form-group has-success">
   	  			<label class="col-sm-1 control-lable">Email:</label>
   	  			<div class="col-sm-2">
   	  				<input type="text" class="form-control" placeholder="xx@example.com"/>
@@ -134,6 +134,36 @@
   	  			<option>足球</option>
   	  		</select>
   	  	</div>
+  	  	
+  	  	<!-- 禁用状态 -->
+  	  	<div class="disable" style="margin-top: 20px ;">
+  	  		<input type="text" class="form-control" placeholder="这是不能输入内容的文本框" disabled style="width: 20% ;"/>
+  	  		<p>说明：在div外部用&lt;fieldset disabled&gt;包裹，整个div内容都是不可选择的</p>
+  	  		<input class="form-control" type="text" placeholder="Readonly input here…" readonly style="width: 20% ;">
+  	  	</div>
+  	  	
+  	  	<!-- 校验状态与添加额外图标 -->
+  	  	<div>
+				<form class="form-horizontal">
+					<div class="form-group has-success">
+						<label class="col-sm-1 control-lable">Email:</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control"
+								placeholder="xx@example.com" />
+						</div>
+						<label class="col-sm-1 control-lable">Password:</label>
+						<div class="col-sm-2">
+							<input type="password" class="form-control" />
+						</div>
+						<div class="col-sm-2">
+							<button type="submit" class="btn btn-default">submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+  	  	
+  	  	
+  	  	
   	  
   	  </div>
   	
