@@ -12,7 +12,7 @@
 			<p>struts + spring + hibernate</p>
 			<p>
 				<a class="btn btn-primary" href="prototype/user/regist.jsp">注册</a>
-				<a class="btn btn-primary" href="prototype/main.jsp">登陆</a>
+				<a class="btn btn-primary" href="prototype/user/login.jsp">登陆</a>
 				<a class="btn btn-primary" href="prototype/main.jsp">开始体验</a>
 			</p>
 		</div>

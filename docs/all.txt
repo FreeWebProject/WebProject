@@ -23,3 +23,9 @@ spring  spring-framework-4.0.4.RELEASE
 搭建ssh，struts.xml  applicationContext.xml  web.xml
 
 注意：spring已经不再为hibernate4提供daoSupport了
+
+创建了hibernateUtil，实现简单的数据库操作。由于事务加载在dao包下，所以放到了dao包下。
+创建了actionUtil，所有的action集成这个类，将一些action所需要的公共东西放入其内，如hibernateUtil
+
+2015-12-02
+在web.xml里面加error-page指定出现错误后跳转的页面

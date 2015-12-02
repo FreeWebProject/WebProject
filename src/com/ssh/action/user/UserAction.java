@@ -3,12 +3,9 @@ package com.ssh.action.user;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.ssh.dao.UserDao;
-import com.ssh.dao.impl.HibernateUtilImpl;
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 
@@ -38,7 +35,7 @@ public class UserAction extends ActionUtil {
 		
 		return SUCCESS ;
 	}
-
+	
 	public User getUser() {
 		return user;
 	}
@@ -47,10 +44,4 @@ public class UserAction extends ActionUtil {
 		this.user = user;
 	}
 
-	@Override
-	@Autowired
-	public void setHibernateUtil(HibernateUtilImpl hibernateUtil) {
-		this.hibernateUtil = hibernateUtil;
-	}
-	
 }
