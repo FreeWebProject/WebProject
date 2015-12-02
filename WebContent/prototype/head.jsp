@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +13,15 @@
 <body>
 	<div class="container-fluid bg-info">
 		<div class="page-header">
-			<h1>SSH<small>struts2 + spring + hibernate</small></h1>
+			<h1>
+				SSH
+				<small>
+					struts2 + spring + hibernate
+					<div class="pull-right">
+						用户名：<s:property value="#session.user.name" />
+					</div>
+				</small>
+			</h1>
 		</div>
 	</div>
 </body>

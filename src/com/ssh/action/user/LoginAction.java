@@ -2,10 +2,8 @@ package com.ssh.action.user;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -14,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
+import com.ssh.util.SessionUtil;
 
 @Component( value = "loginAction" )
 @Scope( value = "prototype" )
@@ -32,10 +31,22 @@ public class LoginAction extends ActionUtil {
 		// 验证用户名是否存在
 		@SuppressWarnings("unchecked")
 		List< User > userList = ( List< User > ) hibernateUtil.queryWithOneWhere( user, "name", user.getName() ) ;
-		System.out.println( userList.size() );
+		if( userList.size() > 0 ) {
+			// 用户名存在，再验证密码
+			User userInfo = userList.get( 0 ) ;
+			if( user.getPassword().equals( userInfo.getPassword() ) ) {
+				// 密码正确
+				System.out.println( "密码正确" ) ;
+			} else {
+				// 密码错误
+				System.out.println( "密码错误！" ) ;
+			}
+		} else {
+			// 用户名不存在
+			System.out.println( "用户名不存在！" ) ;
+		}
 		
-		HttpServletRequest request = ServletActionContext.getRequest() ;
-		HttpSession session = request.getSession() ;
+		HttpSession session = SessionUtil.obtainSession() ;
 		
 		// 将用户信息放入session
 		session.setAttribute( "user", user ) ;
