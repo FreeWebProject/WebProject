@@ -1,5 +1,7 @@
 package com.ssh.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import com.ssh.dao.HibernateUtil;
 public class HibernateUtilImpl implements HibernateUtil {
 	
 	private SessionFactory sessionFactory ;
+	private Session session ;
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -26,12 +29,23 @@ public class HibernateUtilImpl implements HibernateUtil {
 
 	@Override
 	public Object saveOrUpdate(Object entity) {
-		Session session = sessionFactory.getCurrentSession() ;
+		session = sessionFactory.getCurrentSession() ;
 		
 		session.saveOrUpdate( entity ) ;
 		session.flush() ;
 		
 		return entity ;
+	}
+
+	@Override
+	public List<?> queryWithOneWhere( Object entity, String whereColumn, String whereValue) {
+		session = sessionFactory.getCurrentSession() ;
+		
+		String hql = "from " + entity.getClass().getName() + " where " + whereColumn + " = '" + whereValue + "' " ;
+		
+		List<?> result = session.createQuery( hql ).list() ;
+		
+		return result;
 	}
 	
 }
