@@ -18,6 +18,9 @@
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="common/bootstrap/css/bootstrap.css">
 
+<!-- bootstrap-table 核心 CSS 文件 -->
+<link rel="stylesheet" href="common/bootstrap_table/bootstrap-table.css">
+
 <!-- 更改bootstrap样式 -->
 <link rel="stylesheet" href="common/style/bootstrap/modification.css">
 
@@ -26,3 +29,8 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="common/bootstrap/js/bootstrap.js"></script>
+
+<!-- bootstrap-table 核心 javeScript 文件 -->
+<script src="common/bootstrap_table/bootstrap-table.js"></script>
+<!-- put your locale files after bootstrap-table.js -->
+<script src="common/bootstrap_table/locale/bootstrap-table-zh-CN.js"></script>
