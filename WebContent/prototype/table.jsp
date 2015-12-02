@@ -156,7 +156,7 @@
 							<input type="password" class="form-control" />
 						</div>
 						<div class="col-sm-2">
-							<button type="submit" class="btn btn-default">submit</button>
+							<button type="submit" class="btn btn-default">submi</button>
 						</div>
 					</div>
 				</form>
