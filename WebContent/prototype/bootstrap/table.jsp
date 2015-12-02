@@ -4,6 +4,9 @@
 <head>
 <%@ include file="/common/common.jsp" %>
 <title>Insert title here</title>
+<style type="text/css">
+ #top{margin-top: 20px ;}
+</style>
 </head>
 <body>
   	<div class="container-fluid">
@@ -136,36 +139,77 @@
   	  	</div>
   	  	
   	  	<!-- 禁用状态 -->
-  	  	<div class="disable" style="margin-top: 20px ;">
+  	  	<div class="disable" id="top">
   	  		<input type="text" class="form-control" placeholder="这是不能输入内容的文本框" disabled style="width: 20% ;"/>
   	  		<p>说明：在div外部用&lt;fieldset disabled&gt;包裹，整个div内容都是不可选择的</p>
   	  		<input class="form-control" type="text" placeholder="Readonly input here…" readonly style="width: 20% ;">
   	  	</div>
   	  	
   	  	<!-- 校验状态与添加额外图标 -->
-  	  	<div>
-				<form class="form-horizontal">
-					<div class="form-group has-success">
-						<label class="col-sm-1 control-lable">Email:</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control"
-								placeholder="xx@example.com" />
-						</div>
-						<label class="col-sm-1 control-lable">Password:</label>
-						<div class="col-sm-2">
-							<input type="password" class="form-control" />
-						</div>
-						<div class="col-sm-2">
-							<button type="submit" class="btn btn-default">submi</button>
-						</div>
-					</div>
-				</form>
+		<div id="top">
+			<form class="form-horizontal">
+				<div class="form-group has-success has-feedback" style="width: 20% ;">
+					<label class="control-lable">input with success</label>
+					<input type="text" class="form-control" placeholder="xx@example.com" />
+					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				</div>
+				<div class="form-group has-error has-feedback" style="width: 20% ;">
+					<label class="control-lable">input with error</label>
+					<input type="password" class="form-control" />
+					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+				</div>
+				<div class="form-group has-warning has-feedback" style="width: 20% ;">
+					<label class="control-lable">input with warning</label>
+					<input type="password" class="form-control" />
+					<span class="glyphicon glyphicon-flash form-control-feedback" aria-hidden="true"></span>
+				</div>
+			</form>
+		</div>
+		
+		<!-- 文本框高度与宽度 -->
+		<div id="top">
+			<div class="col-xs-2">
+				<input class="form-control input-lg" type="text" placeholder="input-lg col-xs-2" />
 			</div>
-  	  	
-  	  	
-  	  	
-  	  
-  	  </div>
+			<div class="col-xs-3">
+				<input class="form-control" type="text" placeholder="default col-xs-3" >
+			</div>
+			<div class="col-xs-4">
+				<input class="form-control input-sm" type="text" placeholder="input-sm col-xs-4" />
+			</div>
+		</div>
+		
+		<div id="top">
+			<input />
+		</div>
+		
+		<!-- 按钮 -->
+		<div id="top">
+			<div class="form-inline">
+				<a class="btn btn-default" href="#" role="button">link</a>
+				<button class="btn btn-default" type="button">button</button>
+				<input class="btn btn-default" value="input" type="button" />
+			</div>
+		</div>
+		
+		<div id="top">
+			<button class="btn btn-default btn-lg" type="button">default</button>
+			<button class="btn btn-primary btn-lg" type="button">primary</button>
+			<button class="btn btn-success btn-sm" type="button">success</button>
+			<button class="btn btn-warning btn-sm" type="button">warning</button>
+			<button class="btn btn-info btn-xs" type="button">info</button>
+			<button class="btn btn-danger btn-xs disabled" type="button">danger</button>
+		</div>
+		
+		<!-- 图片样式 -->
+		<div id="top"> 
+			<img class="img-round" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+			<img class="img-circle" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+			<img class="img-thumbnail" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+		</div>
+
+
+
   	
   	</div>
 </body>
