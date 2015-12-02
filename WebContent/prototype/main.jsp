@@ -16,7 +16,11 @@
 				<iframe src="prototype/left.jsp"></iframe>
 			</div>
 			<div class="content-right">
+<<<<<<< HEAD
 				<iframe src="user/queryAll.action"></iframe>
+=======
+				<iframe src="prototype/content.jsp" name="content"></iframe>
+>>>>>>> branch 'master' of https://github.com/FreeWebProject/WebProject.git
 			</div>
 		</div>
 		<div class="foot">
