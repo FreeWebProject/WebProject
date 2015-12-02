@@ -9,9 +9,11 @@
 <body>
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
-			<th>ID</th>
-			<th>用户名</th>
-			<th>密码</th>
+			<tr>
+				<th>ID</th>
+				<th>用户名</th>
+				<th>密码</th>
+			</tr>
 		</thead>
 		<tbody>
 			<s:iterator value="userList">

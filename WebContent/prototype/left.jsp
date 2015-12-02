@@ -75,6 +75,12 @@ html, body, .container-fluid {
 						<li role="presentation">
 							<a href="user/queryAll.action">用户列表（no-bt）</a>
 						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/data-toggle.jsp">使用 data 属性的方式</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/bootstrapTable.jsp">通过 javascript 的方式</a>
+						</li>
 					</ul>
 				</div>
 			</div>
