@@ -47,5 +47,16 @@ public class HibernateUtilImpl implements HibernateUtil {
 		
 		return result;
 	}
+
+	@Override
+	public List<?> queryAll(Object entity) {
+		session = sessionFactory.getCurrentSession() ;
+		
+		String hql = "from " + entity.getClass().getName() ;
+		
+		List<?> result = session.createQuery( hql ).list() ;
+		
+		return result;
+	}
 	
 }

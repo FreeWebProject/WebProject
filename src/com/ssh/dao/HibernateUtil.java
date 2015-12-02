@@ -16,9 +16,16 @@ public interface HibernateUtil {
 	
 	/**
 	 * 只有一个where条件的查询<br>
-	 * 参数：entry = 实体类，whereColumn = 条件字段，whereValue = 条件值
+	 * 参数：entry = 实体类，whereColumn = 条件字段，whereValue = 条件值<br>
 	 * 返回值：List<?>查询出来的数据集合
 	 * */
 	List<?> queryWithOneWhere( Object entity, String whereColumn, String whereValue ) ;
+	
+	/**
+	 * 查询所有<br>
+	 * 参数：entity = 实体类<br>
+	 * 返回值：List<?>查询出来的数据集合
+	 * */
+	List<?> queryAll( Object entity ) ;
 	
 }
