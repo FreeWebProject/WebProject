@@ -4,6 +4,7 @@
 <html>
 <head>
 <%@ include file="/common/common.jsp"%>
+<base target="content">
 <title>foot page</title>
 <style type="text/css">
 html, body, .container-fluid {
@@ -48,10 +49,10 @@ html, body, .container-fluid {
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
 						<li class="active" role="presentation">
-							<a href="prototype/content.jsp" target="content">页面内容</a>
+							<a href="prototype/content.jsp">页面内容</a>
 						</li>
 						<li role="presentation">
-							<a href="prototype/table.jsp" target="content">表格和控件</a>
+							<a href="prototype/table.jsp">表格和控件</a>
 						</li>
 						<li role="presentation">
 							<a href="org/org_query.action">下拉列表</a>
@@ -72,7 +73,7 @@ html, body, .container-fluid {
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
 						<li role="presentation">
-							<a href="user/queryAll.action" target="content">用户列表（no-bt）</a>
+							<a href="user/queryAll.action">用户列表（no-bt）</a>
 						</li>
 					</ul>
 				</div>
