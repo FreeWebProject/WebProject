@@ -167,7 +167,7 @@
 		</div>
 		
 		<!-- 文本框高度与宽度 -->
-		<div id="top">
+		<div id="top" class="clearfix">
 			<div class="col-xs-2">
 				<input class="form-control input-lg" type="text" placeholder="input-lg col-xs-2" />
 			</div>
@@ -175,23 +175,11 @@
 				<input class="form-control" type="text" placeholder="default col-xs-3" >
 			</div>
 			<div class="col-xs-4">
-				<input class="form-control input-sm" type="text" placeholder="input-sm col-xs-4" />
+				<input class="form-control input-sm" type="text" placeholder="input-sm col-xs-4 清除浮动clearfix" />
 			</div>
-		</div>
-		
-		<div id="top">
-			<input />
 		</div>
 		
 		<!-- 按钮 -->
-		<div id="top">
-			<div class="form-inline">
-				<a class="btn btn-default" href="#" role="button">link</a>
-				<button class="btn btn-default" type="button">button</button>
-				<input class="btn btn-default" value="input" type="button" />
-			</div>
-		</div>
-		
 		<div id="top">
 			<button class="btn btn-default btn-lg" type="button">default</button>
 			<button class="btn btn-primary btn-lg" type="button">primary</button>
@@ -207,9 +195,42 @@
 			<img class="img-circle" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
 			<img class="img-thumbnail" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
 		</div>
+		
+		<!-- 文本颜色 -->
+		<div id="top">
+			<p class="text-muted">the color is muted</p>
+			<p class="text-success">the color is success</p>
+			<p class="text-primary">the color is primary</p>
+			<p class="text-info">the color is info</p>
+			<p class="text-warning">the color is warning</p>
+			<p class="text-danger">the color is danger</p>
+		</div>
+		
+		<!-- 背景色 -->
+		<div id="top">
+			<p class="bg-muted">the background color is muted</p>
+			<p class="bg-success">the background color is success</p>
+			<p class="bg-primary">the background color is primary</p>
+			<p class="bg-info">the background color is info</p>
+			<p class="bg-warning">the background color is warning</p>
+			<p class="bg-danger">the background color is danger</p>
+		</div>
+		
+		<!-- 左右浮动 -->
+		<div id="top" class="clearfix">
+			<div class="pull-left">
+				<button class="btn btn-primary" type="button">pull-left</button>
+			</div>
+			<div class="pull-right">
+				<button class="btn btn-primary" type="button">pull-right</button>
+			</div>
+		</div>
 
-
-
+		<!-- 任意元素居中 -->
+		<div id="top" class="center-block">
+			<div class="show">这是显示的元素,下方是隐藏的元素，只是看不到</div>
+			<div class="hide">这是隐藏的元素</div>
+		</div>
   	
   	</div>
 </body>
