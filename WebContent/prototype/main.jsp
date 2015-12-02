@@ -16,7 +16,7 @@
 				<iframe src="prototype/left.jsp"></iframe>
 			</div>
 			<div class="content-right">
-				<iframe src="prototype/content.jsp"></iframe>
+				<iframe src="user/queryAll.action"></iframe>
 			</div>
 		</div>
 		<div class="foot">
