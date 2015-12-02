@@ -1,5 +1,7 @@
 package com.ssh.action.user;
 
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -21,6 +23,7 @@ import com.ssh.util.ActionUtil;
 public class UserAction extends ActionUtil {
 
 	private User user ;
+	private List< User > userList ;
 	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -36,12 +39,32 @@ public class UserAction extends ActionUtil {
 		return SUCCESS ;
 	}
 	
+	// 查询所有
+	@SuppressWarnings("unchecked")
+	@Action(
+		value = "queryAll",
+		results = { @Result( name = "success", location = "/prototype/user/user_list.jsp" ) }
+	)
+	public String queryAll() {
+		userList = (List<User>) hibernateUtil.queryAll( new User() ) ;
+		
+		return SUCCESS ;
+	}
+	
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
 
 }
