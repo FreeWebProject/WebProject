@@ -239,19 +239,19 @@
 			  <!-- Wrapper for slides -->
 			  <div class="carousel-inner" role="listbox">
 			    <div class="item active">
-			      <img src="http://p2.so.qhimg.com/t0112d9587a2e75b35c.jpg" alt="first">
+			      <img src="prototype/bootstrap/image/black.jpg" alt="first">
 			      <div class="carousel-caption">
 			       	beautiful
 			      </div>
 			    </div>
 			    <div class="item">
-			      <img src="http://p4.so.qhimg.com/t014bd3b137254a0679.jpg" alt="second">
+			      <img src="prototype/bootstrap/image/cloud.jpg" alt="second">
 			      <div class="carousel-caption">
 			        cool
 			      </div>
 			    </div>
 			    <div class="item">
-			      <img src="http://p4.so.qhimg.com/t017e6ddc00adbba574.jpg" alt="three">
+			      <img src="prototype/bootstrap/image/turnLeft.jpg" alt="three">
 			      <div class="carousel-caption">
 			       	perfect
 			      </div>
