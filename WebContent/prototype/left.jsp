@@ -49,13 +49,13 @@ html, body, .container-fluid {
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
 						<li class="active" role="presentation">
-							<a href="prototype/content.jsp">页面内容</a>
+							<a href="prototype/bootstrap/content.jsp">页面内容</a>
 						</li>
 						<li role="presentation">
-							<a href="prototype/table.jsp">表格和控件</a>
+							<a href="prototype/bootstrap/table.jsp">表格和控件</a>
 						</li>
 						<li role="presentation">
-							<a href="org/org_query.action">下拉列表</a>
+							<a href="prototype/bootstrap/table.jsp">下拉列表</a>
 						</li>
 					</ul>
 				</div>
