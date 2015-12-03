@@ -103,6 +103,16 @@
 			<p class="text-danger">the color is danger</p>
 		</div>
 		
+		<!-- 颜色变体 -->
+		<div id="top">
+			<span class="label label-default">New</span>
+			<span class="label label-success">success</span>
+			<span class="label label-primary">primary</span>
+			<span class="label label-info">info</span>
+			<span class="label label-warning">warning</span>
+			<span class="label label-danger">danger</span>
+		</div>
+		
 		<!-- 背景色 -->
 		<div id="top">
 			<p class="bg-muted">the background color is muted</p>
@@ -127,6 +137,77 @@
 		<div id="top" class="center-block">
 			<div class="show">这是显示的元素,下方是隐藏的元素，只是看不到</div>
 			<div class="hide">这是隐藏的元素</div>
+		</div>
+		
+		<!-- 巨幕 -->
+		<div id="top">
+			<div class="jumbotron">
+				<h1>Hello,world</h1>
+				<p>Welcome to this website ,here you will find more you like ......</p>
+				<p><a href="javascript: ;" role="button" class="btn btn-primary">Learn more</a></p>
+			</div>
+		</div>
+		
+		<!-- 缩略图 -->
+		<div id="top">
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+					<a href="javascript: ;" class="thumbnail">
+						<img alt="" src="prototype/bootstrap/image/laoshu.jpg">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="javascript: ;" class="thumbnail">
+	 					<img alt="" src="prototype/bootstrap/image/im.jpg">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="javascript: ;" class="thumbnail">
+	 					<img alt="" src="prototype/bootstrap/image/pika.jpg">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-3">
+					<a href="javascript: ;" class="thumbnail">
+	 					<img alt="" src="prototype/bootstrap/image/rolse.gif">
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 进度条 -->
+		
+		<div id="top">
+			<div class="progress">
+				<div class="progress-bar progress-bar-info" role="progressbar"
+					aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+					style="min-width: 2em; width: 60%">60%</div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger" role="progressbar"
+					aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+					style="min-width: 2em; width: 20%">20%</div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+					aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+					style="min-width: 2em; width: 30%">30%</div>
+			</div>
+		</div>
+		
+		<div id="top">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">title</h3>
+				</div>
+				<div class="panel-body">
+					this is the content
+				</div>
+				<div class="panel-footer">this is footer</div>
+			</div>
+		</div>
+		
+		<div class="well">
+			hello , I am well！！
 		</div>
 	</div>
 </body>
