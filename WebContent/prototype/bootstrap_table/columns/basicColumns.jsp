@@ -7,7 +7,9 @@
 </head>
 <body>
 	<!-- 
-		data-show-header: 是否显示表头
+		data-show-columns: 是否列的下拉菜单
+		data-switchable: 是否可以隐藏列
+		data-visible: 初始状态是否是可见的
 	 -->
 	<table data-toggle="table" 
 		data-url="user/queryAllResultJson.action"
