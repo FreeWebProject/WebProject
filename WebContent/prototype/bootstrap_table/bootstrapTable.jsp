@@ -27,10 +27,30 @@
 				price: "$2"
 			} ]
 		} ) ;
+		
+		$( "#table_json" ).bootstrapTable( {
+			url: "prototype/bootstrap_table/json/data1.json",
+			columns: [ {
+				field: "id",
+				title: "Item ID"
+			}, {
+				field: "name",
+				title: "Item Name"
+			}, {
+				field: "price",
+				title: "Item Price"
+			} ]
+		} ) ;
 	} ) ;
 </script>
 </head>
 <body>
 	<table id="table"></table>
+	
+	<div class="page-head">
+		<h3>data:json</h3>
+	</div>
+	
+	<table id="table_json"></table>
 </body>
 </html>

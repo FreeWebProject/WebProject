@@ -81,6 +81,9 @@ html, body, .container-fluid {
 						<li role="presentation">
 							<a href="prototype/bootstrap_table/bootstrapTable.jsp">通过 javascript 的方式</a>
 						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/jsonText.jsp">后台传json测试</a>
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -27,5 +27,19 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<div class="page-header">
+		<h3>data-url</h3>
+	</div>
+	
+	<table data-toggle="table" data-url="prototype/bootstrap_table/json/data1.json">
+		<thead>
+			<tr>
+				<th data-field="id">Item ID</th>
+				<th data-field="name">Item Name</th>
+				<th data-field="price">Item Price</th>
+			</tr>
+		</thead>
+	</table>
 </body>
 </html>
