@@ -55,7 +55,7 @@ html, body, .container-fluid {
 							<a href="prototype/bootstrap/table.jsp">表格和控件</a>
 						</li>
 						<li role="presentation">
-							<a href="prototype/bootstrap/table.jsp">下拉列表</a>
+							<a href="prototype/bootstrap/downlist.jsp">下拉列表</a>
 						</li>
 					</ul>
 				</div>

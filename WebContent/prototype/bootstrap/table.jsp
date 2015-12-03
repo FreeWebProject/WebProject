@@ -230,9 +230,8 @@
 		<div id="top" class="center-block">
 			<div class="show">这是显示的元素,下方是隐藏的元素，只是看不到</div>
 			<div class="hide">这是隐藏的元素</div>
-			ssssssssssssssssssssssssssssssssss
 		</div>
-  	
   	</div>
+  </div>
 </body>
 </html>
