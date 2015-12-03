@@ -35,7 +35,7 @@ html, body, .container-fluid {
 				href="javascript: ;">功能菜单</a></li>
 		</ul>
 
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 			<!-- one -->
 			<div class="panel panel-default">
@@ -65,7 +65,7 @@ html, body, .container-fluid {
 			<div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="headingTwo">
 					<h4 class="panel-title">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">bootstrap-table </a>
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">bootstrap-table </a>
 					</h4>
 				</div>
 			</div>
@@ -86,6 +86,65 @@ html, body, .container-fluid {
 						</li>
 						<li role="presentation">
 							<a href="prototype/bootstrap_table/user_list.jsp">用户列表（by-bt）</a>
+						</li>
+						<li role="presentation">
+						
+							<!-- bootstrapTableExamples -->
+							<div class="panel-group" id="bootstrapTableExamples" role="tablist" aria-multiselectable="false">
+							
+								<!-- basic -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="basic">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#basicOne" aria-expanded="false">Basic </a>
+										</h4>
+									</div>
+								</div>
+								<div id="basicOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="basic">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/basic/tableFromHtml.jsp">Table from html</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/basic/tableFromData.jsp">Table from data</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/basic/tableFromUrl.jsp">Table from url</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- style -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="style">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#styleOne" aria-expanded="false">Style</a>
+										</h4>
+									</div>
+								</div>
+								<div id="styleOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="style">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/style/classes.jsp">classes</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/style/rowStyle.jsp">RowStyle</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/style/CellStyle.jsp">CellStyle</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/style/align.jsp">Align</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+							</div>
+							
 						</li>
 					</ul>
 				</div>
