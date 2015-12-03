@@ -5,6 +5,9 @@
 <head>
 <%@ include file="/common/common.jsp" %>
 <title>foot page</title>
+<style type="text/css">
+	#top{margin-top: 20px}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -82,6 +85,49 @@
 		<p>这是标记变量<var>y</var> = <var>x</var>+<var>z</var></p>
 		
 		<samp>this is the output content </samp>
+		
+			<!-- 图片样式 -->
+		<div id="top"> 
+			<img class="img-round" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+			<img class="img-circle" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+			<img class="img-thumbnail" alt="我是阿里哦" src="prototype/bootstrap/image/im.jpg">
+		</div>
+		
+		<!-- 文本颜色 -->
+		<div id="top">
+			<p class="text-muted">the color is muted</p>
+			<p class="text-success">the color is success</p>
+			<p class="text-primary">the color is primary</p>
+			<p class="text-info">the color is info</p>
+			<p class="text-warning">the color is warning</p>
+			<p class="text-danger">the color is danger</p>
+		</div>
+		
+		<!-- 背景色 -->
+		<div id="top">
+			<p class="bg-muted">the background color is muted</p>
+			<p class="bg-success">the background color is success</p>
+			<p class="bg-primary">the background color is primary</p>
+			<p class="bg-info">the background color is info</p>
+			<p class="bg-warning">the background color is warning</p>
+			<p class="bg-danger">the background color is danger</p>
+		</div>
+		
+		<!-- 左右浮动 -->
+		<div id="top" class="clearfix">
+			<div class="pull-left">
+				<button class="btn btn-primary" type="button">pull-left</button>
+			</div>
+			<div class="pull-right">
+				<button class="btn btn-primary" type="button">pull-right</button>
+			</div>
+		</div>
+
+		<!-- 任意元素居中 -->
+		<div id="top" class="center-block">
+			<div class="show">这是显示的元素,下方是隐藏的元素，只是看不到</div>
+			<div class="hide">这是隐藏的元素</div>
+		</div>
 	</div>
 </body>
 </html>

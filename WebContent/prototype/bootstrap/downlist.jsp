@@ -62,6 +62,16 @@
 			<button type="button" class="btn btn-danger">right</button>	
 		</div>
 		
+		<!-- 按钮 -->
+		<div id="top">
+			<button class="btn btn-default btn-lg" type="button">default</button>
+			<button class="btn btn-primary btn-lg" type="button">primary</button>
+			<button class="btn btn-success btn-sm" type="button">success</button>
+			<button class="btn btn-warning btn-sm" type="button">warning</button>
+			<button class="btn btn-info btn-xs" type="button">info</button>
+			<button class="btn btn-danger btn-xs disabled" type="button">danger</button>
+		</div>
+		
 		<!-- 按钮工具栏 -->
 		<div id="top" class="btn-toolbar" role="toolbar">
 			<div class="btn-group" role="group">
@@ -98,6 +108,27 @@
 					<li><a href="#">北京</a></li>
 					<li><a href="#">广州</a></li>
 				</ul>
+		   </div>
+	   </div>
+	   
+	   <div id="top" class="btn-group btn-group-justified" role="group">
+	     	<div class="btn-group" role="group">
+	   			<button type="button" class="btn btn-default">button</button>
+	   		</div>
+	   		<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default">button</button>
+			</div>
+			<div class="btn-group" role="group">
+				<div class="dropdown">
+					<button type="button" class="btn btn-default dropdown-toggle" id="dropMenu1" aria-haspopup="true" aria-expanded="true" data-toggle="dropdown">
+						下拉菜单(带分类)<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropMenu1">
+						<li class="dropdown-header">兴趣爱好</li>
+						<li><a href="#">跑步</a></li>
+						<li><a href="#">游泳</a></li>
+					</ul>
+		 		</div>
 		   </div>
 	   </div>
 	   
