@@ -16,7 +16,7 @@
 				<iframe src="prototype/left.jsp"></iframe>
 			</div>
 			<div class="content-right">
-				<iframe src="prototype/content.jsp" name="content"></iframe>
+				<iframe src="prototype/bootstrap/content.jsp" name="content"></iframe>
 			</div>
 		</div>
 		<div class="foot">
