@@ -143,6 +143,27 @@ html, body, .container-fluid {
 									</div>
 								</div>
 								
+								<!-- sort -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="sort">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#sortOne" aria-expanded="false">Sort</a>
+										</h4>
+									</div>
+								</div>
+								<div id="sortOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sort">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/sort/basicSort.jsp">Basic Sort</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/sort/customSort.jsp">Custom Sort</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
 							</div>
 							
 						</li>
