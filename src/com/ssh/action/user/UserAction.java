@@ -4,12 +4,16 @@ import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
+import com.ssh.util.ResponseUtil;
+
+import net.sf.json.JSONArray;
 
 /*
  * @Component --- spring注解，将这个类交给spring来管理  value 为他的名字
@@ -19,6 +23,7 @@ import com.ssh.util.ActionUtil;
 @Component( value = "userAction" )
 @Scope( value = "prototype" )
 @Namespace( value = "/user" )
+@ParentPackage( value = "json-default" )
 @SuppressWarnings("serial")
 public class UserAction extends ActionUtil {
 
@@ -49,6 +54,19 @@ public class UserAction extends ActionUtil {
 		userList = (List<User>) hibernateUtil.queryAll( new User() ) ;
 		
 		return SUCCESS ;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Action(
+		value = "queryAllResultJson",
+		results = { @Result( type = "json" ) }
+	)
+	public void queryAllReturnJson() {
+		userList = (List<User>) hibernateUtil.queryAll( new User() ) ;
+		
+		JSONArray jsonObject = JSONArray.fromObject( userList ) ;
+		
+		ResponseUtil.sendMsgToPage( jsonObject.toString() ) ;
 	}
 	
 	public User getUser() {

@@ -29,3 +29,11 @@ spring  spring-framework-4.0.4.RELEASE
 
 2015-12-02
 在web.xml里面加error-page指定出现错误后跳转的页面
+
+添加bootstrap-table 用作表格控件
+页面写死数据尝试成功，从后台获取数据失败，执行到JSONObject jsonObject = new JSONObject() ;就会出错。
+尝试各种方法，为找到原因。
+
+2015-12-03
+继续查找错误原因，经过百度，多数是因为包的问题，有新增json-lib的依赖包，都加全后还是不行。
+意识到是包版本的问题，发现struts2中有两个common-lang包，将低版本的包加进来后，问题解决，但高版本的不能删掉，删掉之后系统无法正常启动，不知为何。

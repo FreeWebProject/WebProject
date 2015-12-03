@@ -1,12 +1,8 @@
 package com.ssh.action.bootstraptable;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -16,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
+import com.ssh.util.ResponseUtil;
 
 import net.sf.json.JSONArray;
 
@@ -33,7 +30,7 @@ public class BootstrapTableAction extends ActionUtil {
 		value = "jsonText",
 		results = { @Result( type = "json" ) }
 	)
-	public void jsonText() throws IOException {
+	public void jsonText() {
 		List< User > userList = new ArrayList< User >() ;
 		
 		for( int i = 0; i < 10; i++ ) {
@@ -48,17 +45,9 @@ public class BootstrapTableAction extends ActionUtil {
 		
 		JSONArray jsonObject = JSONArray.fromObject( userList ) ;
 		
-		System.out.println( jsonObject.toString() );
-		
-		sendMsg( jsonObject.toString() ) ;
+		ResponseUtil.sendMsgToPage( jsonObject.toString() ) ;
 	}
 	
-	private void sendMsg(String context) throws IOException {
-		HttpServletResponse response = ServletActionContext.getResponse() ;
-		response.setCharacterEncoding("UTF-8") ;
-		response.getWriter().write(context) ;
-	}
-
 	public String getOrder() {
 		return order;
 	}

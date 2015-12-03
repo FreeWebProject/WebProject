@@ -84,6 +84,9 @@ html, body, .container-fluid {
 						<li role="presentation">
 							<a href="prototype/bootstrap_table/jsonText.jsp">后台传json测试</a>
 						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/user_list.jsp">用户列表（by-bt）</a>
+						</li>
 					</ul>
 				</div>
 			</div>
