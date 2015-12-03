@@ -12,6 +12,7 @@
 		data-sortable: 是否可以排序
 		
 		后台并没有写sql的排序，可以自动排序。强大
+		test
 	 -->
 	<table data-toggle="table" 
 		data-url="user/queryAllResultJson.action"
