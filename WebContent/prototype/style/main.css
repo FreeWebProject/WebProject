@@ -22,6 +22,7 @@ iframe{
 	height: 100%;
 	float: right;
 	margin: 1%;
+	margin-top: 0;
 }
 .head{
 	width: 100%;

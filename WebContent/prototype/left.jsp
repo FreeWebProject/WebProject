@@ -164,8 +164,38 @@ html, body, .container-fluid {
 									</div>
 								</div>
 								
+								<!-- columns -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="columns">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#columnsOne" aria-expanded="false">Columns</a>
+										</h4>
+									</div>
+								</div>
+								<div id="columnsOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="columns">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/columns/basicColumns.jsp">Basic Columns</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/columns/largeColumns.jsp">Large Columns</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
 							</div>
 							
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/format.jsp">Format</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/currentRowCount.jsp">Show current row count using Formatter</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/hideHeader.jsp">Hide Header</a>
 						</li>
 					</ul>
 				</div>
