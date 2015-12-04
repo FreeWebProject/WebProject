@@ -24,13 +24,24 @@
 <!-- 更改bootstrap样式 -->
 <link rel="stylesheet" href="common/style/bootstrap/modification.css">
 
+<!-- 常规常量constants.css -->
+<link rel="stylesheet" href="common/style/constants.css">
+
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="common/script/jquery/jquery-2.1.4.js"></script>
+
+<!-- json2.js 用户处理json -->
+<script src="common/json/json2.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="common/bootstrap/js/bootstrap.js"></script>
 
 <!-- bootstrap-table 核心 javeScript 文件 -->
 <script src="common/bootstrap_table/bootstrap-table.js"></script>
+<script src="common/bootstrap_table/extensions/export/bootstrap-table-export.js"></script>
+<script src="common/tableExport/tableExport.js"></script>
 <!-- put your locale files after bootstrap-table.js -->
 <script src="common/bootstrap_table/locale/bootstrap-table-zh-CN.js"></script>
+
+<!-- 用于bootstrap-table的一些方法 -->
+<script src="common/script/bootstrap_table/bootstrap-table.js"></script>

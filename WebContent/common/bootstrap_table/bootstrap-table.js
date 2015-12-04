@@ -262,7 +262,7 @@
         responseHandler: function (res) {
             return res;
         },
-        pagination: false,
+        pagination: true,
         onlyInfoPagination: false,
         sidePagination: 'client', // client or server
         totalRows: 0, // server side need to set
@@ -276,15 +276,15 @@
         paginationPreText: '&lsaquo;',
         paginationNextText: '&rsaquo;',
         paginationLastText: '&raquo;',
-        search: false,
+        search: true,
         strictSearch: false,
         searchAlign: 'right',
         selectItemName: 'btSelectItem',
         showHeader: true,
         showFooter: false,
-        showColumns: false,
-        showPaginationSwitch: false,
-        showRefresh: false,
+        showColumns: true,
+        showPaginationSwitch: true,
+        showRefresh: true,
         showToggle: false,
         buttonsAlign: 'right',
         smartDisplay: true,
@@ -294,10 +294,10 @@
         cardView: false,
         detailView: false,
         detailFormatter: function (index, row) {
-            return '';
+            return "";
         },
         trimOnSearch: true,
-        clickToSelect: false,
+        clickToSelect: true,
         singleSelect: false,
         toolbar: undefined,
         toolbarAlign: 'left',
