@@ -13,8 +13,6 @@ import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.ResponseUtil;
 
-import net.sf.json.JSONArray;
-
 /*
  * @Component --- spring注解，将这个类交给spring来管理  value 为他的名字
  * @Scope --- spring注解，指定Component的scope  action一定要指定为 "prototype"
@@ -56,17 +54,24 @@ public class UserAction extends ActionUtil {
 		return SUCCESS ;
 	}
 	
-	@SuppressWarnings("unchecked")
+	// 查询所有，返回 json
 	@Action(
 		value = "queryAllResultJson",
 		results = { @Result( type = "json" ) }
 	)
 	public void queryAllReturnJson() {
-		userList = (List<User>) hibernateUtil.queryAll( new User() ) ;
-		
-		JSONArray jsonObject = JSONArray.fromObject( userList ) ;
-		
-		ResponseUtil.sendMsgToPage( jsonObject.toString() ) ;
+		ResponseUtil.sendMsgToPage( hibernateUtil.queryAllReturnJson( new User() ).toString() ) ;
+	}
+	
+	// 删除
+	@Action(
+		value = "delete",
+		results = { @Result( type = "json" ) }
+	)
+	public void delete() {
+		User user = new User() ;
+		user.setId( textData ) ;
+		hibernateUtil.delete( user ) ;
 	}
 	
 	public User getUser() {

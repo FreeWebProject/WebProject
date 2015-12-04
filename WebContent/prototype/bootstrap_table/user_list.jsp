@@ -29,8 +29,10 @@
 	        console.log(value, row, index);
 	    },
 	    'click .remove': function (e, value, row, index) {
-	        alert('You click remove icon, row: ' + JSON.stringify(row));
-	        console.log(value, row, index);
+	        ajax_callText( "user/delete.action", value, function() {
+	        	bt_removeOneRow( "btTable", "id", value ) ;
+	        	alert( DELETE_SUCCESS ) ;
+	        } ) ;
 	    }
 	};
 </script>
@@ -44,15 +46,14 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</button>
 	</div>
-	<table data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
+	<table id="btTable" data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
 		<thead>
 			<tr>
 				<th data-checkbox="true"></th>
 				<th data-formatter="bt_order">#</th>
-				<th data-field="id" data-sortable="true">ID</th>
 				<th data-field="name" data-sortable="true">用户名</th>
 				<th data-field="password" data-sortable="true">密码</th>
-				<th data-formatter="actionFormatter" data-events="actionEvents">操作</th>
+				<th data-field="id" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
 			</tr>
 		</thead>
 	</table>

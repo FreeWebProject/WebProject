@@ -9,3 +9,13 @@
 function bt_order(value, row, index) {
     return index;
 }
+
+/**
+ * 删除一行
+ */
+function bt_removeOneRow( tableId, field, value ) {
+	$( "#" + tableId + "" ).bootstrapTable( "remove", {
+		"field": field,
+		"values": [ value ]
+	} ) ;
+}

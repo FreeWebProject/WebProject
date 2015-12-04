@@ -27,6 +27,9 @@
 <!-- 常规常量constants.css -->
 <link rel="stylesheet" href="common/style/constants.css">
 
+<!-- js 常量 -->
+<script src="common/script/constants.js"></script>
+
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="common/script/jquery/jquery-2.1.4.js"></script>
 
@@ -45,3 +48,6 @@
 
 <!-- 用于bootstrap-table的一些方法 -->
 <script src="common/script/bootstrap_table/bootstrap-table.js"></script>
+
+<!-- 用于ajax的方法 -->
+<script src="common/script/ajax/ajax.js"></script>

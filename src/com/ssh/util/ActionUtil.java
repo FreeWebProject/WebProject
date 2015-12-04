@@ -20,6 +20,12 @@ public class ActionUtil extends ActionSupport {
 	protected String offset ;
 	protected String order ;
 	protected String sort ;
+	
+	/**
+	 * 接受 ajax 数据
+	 * */
+	protected String textData ;
+	protected String jsonData ;
 
 	public HibernateUtilImpl getHibernateUtil() {
 		return hibernateUtil;
@@ -60,6 +66,22 @@ public class ActionUtil extends ActionSupport {
 
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+
+	public String getTextData() {
+		return textData;
+	}
+
+	public void setTextData(String textData) {
+		this.textData = textData;
+	}
+
+	public String getJsonData() {
+		return jsonData;
+	}
+
+	public void setJsonData(String jsonData) {
+		this.jsonData = jsonData;
 	}
 	
 }
