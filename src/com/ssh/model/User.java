@@ -19,6 +19,14 @@ public class User {
 	private String id ;
 	private String name ;
 	private String password ;
+	private String age ;
+	private String sex ;
+	private String birthday ;
+	private String hobby ;
+	private String education ;
+	private String phone ;
+	private String email ;
+	private String self ;
 	
 	/*
 	 * @Id --- hibernate注解，表名这个一个主键ID
@@ -32,7 +40,63 @@ public class User {
 	public String getId() {
 		return id;
 	}
+	@Column( name = "age", length = 32 )
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+	@Column( name = "birthday", length = 32 )
+	public String getBirthday() {
+		return birthday;
+	}
 	
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	@Column( name = "hobby", length = 32 )
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	@Column( name = "education", length = 32 )
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	@Column( name = "phone", length = 32 )
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	@Column( name = "email", length = 32 )
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Column( name = "self", length = 1024 )
+	public String getSelf() {
+		return self;
+	}
+
+	public void setSelf(String self) {
+		this.self = self;
+	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -53,6 +117,13 @@ public class User {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	@Column( name = "sex", length = 32 )
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 }
