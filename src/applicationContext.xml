@@ -77,6 +77,7 @@
 	<tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
             <tx:method name="userExist" propagation="REQUIRED" />
 
             <!-- hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->

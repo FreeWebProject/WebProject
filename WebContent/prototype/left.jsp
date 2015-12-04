@@ -20,7 +20,7 @@ html, body, .container-fluid {
   			if( $( this ).attr( "class" ) == "active" ) {
   				
   			} else {
-  				$( this ).siblings().removeClass( "active" ) ;
+  				$( "[ role = 'presentation' ]" ).removeClass( "active" ) ;
   				$( this ).addClass( "active" ) ;
   			}
   		} ) ;
@@ -31,7 +31,7 @@ html, body, .container-fluid {
 <body>
 	<div class="container-fluid">
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active text-center" id="menu" role="presentation"><a
+			<li class="active text-center" id="menu"><a
 				href="javascript: ;">功能菜单</a></li>
 		</ul>
 

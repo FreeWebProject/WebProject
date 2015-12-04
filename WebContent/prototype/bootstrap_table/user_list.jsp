@@ -4,14 +4,56 @@
 <head>
 <%@ include file="/common/common.jsp" %>
 <title>用户列表（by bt）</title>
+<script type="text/javascript">
+	function actionFormatter(value, row, index) {
+	    return [
+	        '<a class="view" href="javascript:void(0)" title="查看">',
+	        '<i class="glyphicon glyphicon-eye-open"></i>',
+	        '</a>',
+	        '<a class="edit ml10" href="javascript:void(0)" title="编辑">',
+	        '<i class="glyphicon glyphicon-edit"></i>',
+	        '</a>',
+	        '<a class="remove ml10" href="javascript:void(0)" title="删除">',
+	        '<i class="glyphicon glyphicon-remove"></i>',
+	        '</a>'
+	    ].join('');
+	}
+	
+	window.actionEvents = {
+	    'click .view': function (e, value, row, index) {
+	        alert('You click like icon, row: ' + JSON.stringify(row));
+	        console.log(value, row, index);
+	    },
+	    'click .edit': function (e, value, row, index) {
+	        alert('You click edit icon, row: ' + JSON.stringify(row));
+	        console.log(value, row, index);
+	    },
+	    'click .remove': function (e, value, row, index) {
+	        ajax_callText( "user/delete.action", value, function() {
+	        	bt_removeOneRow( "btTable", "id", value ) ;
+	        	alert( DELETE_SUCCESS ) ;
+	        } ) ;
+	    }
+	};
+</script>
 </head>
 <body>
-	<table data-toggle="table" data-url="user/queryAllResultJson.action">
+	<div id="toolbar" class="btn-group">
+		<button type="button" class="btn btn-default" title="新建">
+			<i class="glyphicon glyphicon-plus"></i>
+		</button>
+		<button type="button" class="btn btn-danger" title="删除">
+			<i class="glyphicon glyphicon-trash"></i>
+		</button>
+	</div>
+	<table id="btTable" data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
 		<thead>
 			<tr>
-				<th data-field="id">ID</th>
-				<th data-field="name">用户名</th>
-				<th data-field="password">密码</th>
+				<th data-checkbox="true"></th>
+				<th data-formatter="bt_order">#</th>
+				<th data-field="name" data-sortable="true">用户名</th>
+				<th data-field="password" data-sortable="true">密码</th>
+				<th data-field="id" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
 			</tr>
 		</thead>
 	</table>

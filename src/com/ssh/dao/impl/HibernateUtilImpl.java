@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import com.ssh.dao.HibernateUtil;
 
+import net.sf.json.JSONArray;
+
 /**
  * 数据库简单操作的工具类
  * */
@@ -57,6 +59,22 @@ public class HibernateUtilImpl implements HibernateUtil {
 		List<?> result = session.createQuery( hql ).list() ;
 		
 		return result;
+	}
+
+	@Override
+	public JSONArray queryAllReturnJson(Object entity) {
+		List<?> resultList = queryAll( entity ) ;
+		
+		JSONArray jsonArray = JSONArray.fromObject( resultList ) ;
+		
+		return jsonArray;
+	}
+
+	@Override
+	public void delete(Object entity) {
+		session = sessionFactory.getCurrentSession() ;
+		
+		session.delete( entity ) ;
 	}
 	
 }

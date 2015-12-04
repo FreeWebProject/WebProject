@@ -262,7 +262,7 @@
         responseHandler: function (res) {
             return res;
         },
-        pagination: false,
+        pagination: true,
         onlyInfoPagination: false,
         sidePagination: 'client', // client or server
         totalRows: 0, // server side need to set
@@ -276,15 +276,15 @@
         paginationPreText: '&lsaquo;',
         paginationNextText: '&rsaquo;',
         paginationLastText: '&raquo;',
-        search: false,
+        search: true,
         strictSearch: false,
         searchAlign: 'right',
         selectItemName: 'btSelectItem',
         showHeader: true,
         showFooter: false,
-        showColumns: false,
-        showPaginationSwitch: false,
-        showRefresh: false,
+        showColumns: true,
+        showPaginationSwitch: true,
+        showRefresh: true,
         showToggle: false,
         buttonsAlign: 'right',
         smartDisplay: true,
@@ -294,10 +294,10 @@
         cardView: false,
         detailView: false,
         detailFormatter: function (index, row) {
-            return '';
+            return "";
         },
         trimOnSearch: true,
-        clickToSelect: false,
+        clickToSelect: true,
         singleSelect: false,
         toolbar: undefined,
         toolbarAlign: 'left',
@@ -945,7 +945,7 @@
         if (this.options.showPaginationSwitch) {
             html.push(sprintf('<button class="btn btn-default" type="button" name="paginationSwitch" title="%s">',
                     this.options.formatPaginationSwitch()),
-                sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.paginationSwitchDown),
+                sprintf('<i class="%s %s"></i>&nbsp;', this.options.iconsPrefix, this.options.icons.paginationSwitchDown),
                 '</button>');
         }
 
@@ -954,7 +954,7 @@
                     sprintf(' btn-%s', this.options.iconSize) +
                     '" type="button" name="refresh" title="%s">',
                     this.options.formatRefresh()),
-                sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.refresh),
+                sprintf('<i class="%s %s"></i>&nbsp;', this.options.iconsPrefix, this.options.icons.refresh),
                 '</button>');
         }
 
