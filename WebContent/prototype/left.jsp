@@ -188,6 +188,96 @@ html, body, .container-fluid {
 									</div>
 								</div>
 								
+								<!-- select -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="select">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#selectOne" aria-expanded="false">Select</a>
+										</h4>
+									</div>
+								</div>
+								<div id="selectOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="select">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/select/radioSelect.jsp">Radio Select</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/select/checkboxSelect.jsp">Checkbox Select</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/select/disabledCheckbox.jsp">Disabled Checkbox</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/select/singleCheckbox.jsp">Single Checkbox</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- toolbar -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="toolbar">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#toolbarOne" aria-expanded="false">Toolbar</a>
+										</h4>
+									</div>
+								</div>
+								<div id="toolbarOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="toolbar">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/toolbar/basicToolbar.jsp">Basic Toolbar</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/toolbar/customToolbar.jsp">Custom Toolbar</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- pagination -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="pagination">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#paginationOne" aria-expanded="false">Pagination</a>
+										</h4>
+									</div>
+								</div>
+								<div id="paginationOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pagination">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/pagination/clientSide.jsp">Client Side</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/pagination/serverSide.jsp">Server Side</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								<!-- events -->
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="events">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#bootstrapTableExamples" href="#eventsOne" aria-expanded="false">Events</a>
+										</h4>
+									</div>
+								</div>
+								<div id="eventsOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="events">
+									<div class="panel-body">
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/events/basicEvents.jsp">Basic Events</a>
+											</li>
+											<li role="presentation">
+												<a href="prototype/bootstrap_table/events/columnEvents.jsp">Column Events</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
 							</div>
 							
 						</li>
@@ -199,6 +289,12 @@ html, body, .container-fluid {
 						</li>
 						<li role="presentation">
 							<a href="prototype/bootstrap_table/hideHeader.jsp">Hide Header</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/cardView.jsp">Card View</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/bootstrap_table/resetView.jsp">Reset View</a>
 						</li>
 					</ul>
 				</div>
