@@ -945,7 +945,7 @@
         if (this.options.showPaginationSwitch) {
             html.push(sprintf('<button class="btn btn-default" type="button" name="paginationSwitch" title="%s">',
                     this.options.formatPaginationSwitch()),
-                sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.paginationSwitchDown),
+                sprintf('<i class="%s %s"></i>&nbsp;', this.options.iconsPrefix, this.options.icons.paginationSwitchDown),
                 '</button>');
         }
 
@@ -954,7 +954,7 @@
                     sprintf(' btn-%s', this.options.iconSize) +
                     '" type="button" name="refresh" title="%s">',
                     this.options.formatRefresh()),
-                sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.refresh),
+                sprintf('<i class="%s %s"></i>&nbsp;', this.options.iconsPrefix, this.options.icons.refresh),
                 '</button>');
         }
 
