@@ -8,7 +8,18 @@ import com.ssh.dao.impl.HibernateUtilImpl;
 @SuppressWarnings("serial")
 public class ActionUtil extends ActionSupport {
 
+	/**
+	 * 执行简单数据库操作的工具类
+	 * */
 	protected HibernateUtilImpl hibernateUtil ;
+	
+	/**
+	 * bootstrap-table所需参数
+	 * */
+	protected String limit ;
+	protected String offset ;
+	protected String order ;
+	protected String sort ;
 
 	public HibernateUtilImpl getHibernateUtil() {
 		return hibernateUtil;
@@ -17,6 +28,38 @@ public class ActionUtil extends ActionSupport {
 	@Autowired
 	public void setHibernateUtil(HibernateUtilImpl hibernateUtil) {
 		this.hibernateUtil = hibernateUtil;
+	}
+
+	public String getLimit() {
+		return limit;
+	}
+
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+
+	public String getOffset() {
+		return offset;
+	}
+
+	public void setOffset(String offset) {
+		this.offset = offset;
+	}
+
+	public String getOrder() {
+		return order;
+	}
+
+	public void setOrder(String order) {
+		this.order = order;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 	
 }
