@@ -43,5 +43,4 @@ public interface HibernateUtil {
 	 * 返回值：
 	 * */
 	void delete( Object entity ) ;
-	
 }

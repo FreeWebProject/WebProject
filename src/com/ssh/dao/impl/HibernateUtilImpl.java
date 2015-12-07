@@ -76,5 +76,6 @@ public class HibernateUtilImpl implements HibernateUtil {
 		
 		session.delete( entity ) ;
 	}
+
 	
 }

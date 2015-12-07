@@ -9,6 +9,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.ssh.dao.UserDao;
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.ResponseUtil;
@@ -29,6 +30,7 @@ public class UserAction extends ActionUtil {
 
 	private User user ;
 	private List< User > userList ;
+	private UserDao userDao ;
 	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -91,6 +93,19 @@ public class UserAction extends ActionUtil {
 		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
 	}
 	
+	//验证用户名是否存在
+	@SuppressWarnings("unchecked")
+	@Action(
+		value = "verifyUsername", 
+		results = { @Result( type = "json" ) }
+	)
+	public void verifyUsername(){
+		userList =  (List<User>)hibernateUtil.queryWithOneWhere(new User(), "name", textData) ;
+		String length = "" + userList.size() ;
+		
+		ResponseUtil.sendMsgToPage( length ) ;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -106,5 +121,14 @@ public class UserAction extends ActionUtil {
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
 	}
+
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
 
 }
