@@ -18,11 +18,10 @@ iframe{
 	border-right: solid 1px #ccc;
 }
 .content-right{
-	width: 83%;
+	width: 84%;
 	height: 100%;
 	float: right;
-	margin: 1%;
-	margin-top: 0;
+	margin-left: 1%;
 }
 .head{
 	width: 100%;

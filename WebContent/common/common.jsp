@@ -25,6 +25,9 @@
 <!-- datepicker CSS文件 -->
 <link rel="stylesheet" href="common/bootstrap/css/bootstrap-datetimepicker.css">
 
+<!-- argDialog -->
+<link rel="stylesheet" type="text/css" href="common/artDialog/skins/twitter.css" />
+
 <!-- formValidator CSS文件 -->
 <link rel="stylesheet" href="common/formValidator/css/validationEngine.jquery.css">
 
@@ -58,6 +61,10 @@
 
 <!-- datepicker 核心 JavaScript 文件 -->
 <script src="common/bootstrap/js/bootstrap-datetimepicker.js"></script>
+
+<!-- argDialog -->
+<script src="common/artDialog/artDialog.source.js" type="text/javascript"></script>
+<script src="common/artDialog/plugins/iframeTools.source.js" type="text/javascript"></script>
 
 <!-- formValidator 核心javaScript 文件 -->
 <script src="common/formValidator/js/jquery.validationEngine.js"></script>
