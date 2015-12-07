@@ -22,6 +22,9 @@
 <!-- bootstrap-table 核心 CSS 文件 -->
 <link rel="stylesheet" href="common/bootstrap_table/bootstrap-table.css">
 
+<!-- datepicker CSS文件 -->
+<link rel="stylesheet" href="common/bootstrap/css/bootstrap-datetimepicker.css">
+
 <!-- formValidator CSS文件 -->
 <link rel="stylesheet" href="common/formValidator/css/validationEngine.jquery.css">
 
@@ -30,9 +33,6 @@
 
 <!-- formValidator template CSS文件 -->
 <link rel="stylesheet" href="common/formValidator/css/template.css">
-
-<!-- datepicker CSS文件 -->
-<link rel="stylesheet" href="common/bootstrap/css/bootstrap-datetimepicker.css">
 
 <!-- 常规常量constants.css -->
 <link rel="stylesheet" href="common/style/constants.css">
@@ -56,11 +56,11 @@
 <script src="common/bootstrap_table/extensions/export/bootstrap-table-export.js"></script>
 <script src="common/tableExport/tableExport.js"></script>
 
-<!-- formValidator 核心javaScript 文件 -->
-<script src="common/formValidator/js/jquery.validationEngine.js"></script>
-
 <!-- datepicker 核心 JavaScript 文件 -->
 <script src="common/bootstrap/js/bootstrap-datetimepicker.js"></script>
+
+<!-- formValidator 核心javaScript 文件 -->
+<script src="common/formValidator/js/jquery.validationEngine.js"></script>
 
 <!-- 用于bootstrap-table的一些方法 -->
 <script src="common/script/bootstrap_table/bootstrap-table.js"></script>
