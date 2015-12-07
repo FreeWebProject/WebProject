@@ -1,0 +1,38 @@
+/**
+ * artDialog 所需要的一些方法<br>
+ * 所有方法以ad_开头
+ */
+
+/**
+ * 确认删除的方法
+ * */
+function ad_confirmDelete( okFunction, content, cancelFunction ) {
+	var content = content || AD_CONFIRMDELETE ;
+	var cancelFunction = cancelFunction || true ;
+	art.dialog( {
+		"width": "280px",
+		"height": "80px",
+		"title": AD_CONFIRMDELETE_TITLE,
+		"content": content,
+		"ok": okFunction,
+		"cancelVal": "取消",
+		"cancel": cancelFunction,
+		"lock": true,
+		"fixed": true
+	} ) ;
+}
+
+/**
+ * 类似alert方法
+ * */
+function ad_alert( content, width, height ) {
+	var width = (width || "280") + "px" ;
+	var height = ( height || "80" ) + "px" ;
+	art.dialog( {
+		"width": width,
+		"height": height,
+		"content": content,
+		"time": 2
+	} ) ;
+	
+}

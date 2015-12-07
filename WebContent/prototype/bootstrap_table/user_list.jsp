@@ -29,10 +29,12 @@
 	        console.log(value, row, index);
 	    },
 	    'click .remove': function (e, value, row, index) {
-	        ajax_callText( "user/delete.action", value, function() {
-	        	bt_removeOneRow( "btTable", "id", value ) ;
-	        	alert( DELETE_SUCCESS ) ;
-	        } ) ;
+	    	ad_confirmDelete( function() {
+		        ajax_callText( "user/delete.action", value, function() {
+		        	bt_removeOneRow( "btTable", "id", value ) ;
+		        	ad_alert( DELETE_SUCCESS ) ;
+		        } ) ;
+    		} ) ;
 	    }
 	};
 </script>

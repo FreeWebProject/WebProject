@@ -11,7 +11,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">    
+<meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <meta http-equiv="Content-type" content="0" />
@@ -63,8 +63,8 @@
 <script src="common/bootstrap/js/bootstrap-datetimepicker.js"></script>
 
 <!-- argDialog -->
-<script src="common/artDialog/artDialog.source.js" type="text/javascript"></script>
-<script src="common/artDialog/plugins/iframeTools.source.js" type="text/javascript"></script>
+<script src="common/artDialog/artDialog.source.js"></script>
+<script src="common/artDialog/plugins/iframeTools.source.js"></script>
 
 <!-- formValidator 核心javaScript 文件 -->
 <script src="common/formValidator/js/jquery.validationEngine.js"></script>
@@ -74,3 +74,6 @@
 
 <!-- 用于ajax的方法 -->
 <script src="common/script/ajax/ajax.js"></script>
+
+<!-- 用于artDialog的方法 -->
+<script src="common/script/artDialog/artDialog.js"></script>
