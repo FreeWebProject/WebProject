@@ -7,16 +7,29 @@
 <title>login</title>
 </head>
 <body>
-	<s:form cssClass="container" action="login" namespace="/user" method="post">
-		<div class="form-group">
-			<label>用户名</label>
-			<s:textfield cssClass="form-control" name="user.name" />
+	<s:form cssClass="container-fluid" action="login" namespace="/user" method="POST">
+		<div class="form-horizontal" style="margin-top: 150px">
+			<div class="form-group">
+				<label class="col-md-5 control-label">用户名:</label>
+				<div class="col-md-5">
+					<s:textfield cssClass="" name="user.name" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-5 control-label">密码:</label>
+				<div class="col-md-5">
+					<s:password cssClass="" name="user.password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-6 control-label"><input type="checkbox"> rember me </label>
+  			</div>
+  			<div class="form-group">
+				<label class="col-md-6 control-label">
+					<button class="btn btn-primary" type="submit">登陆</button>
+				</label>
+  			</div>
 		</div>
-		<div class="form-group">
-			<label>密码</label>
-			<s:textfield cssClass="form-control" name="user.password" />
-		</div>
-		<button class="btn btn-primary" type="submit">登陆</button>
 	</s:form>
 </body>
 </html>
