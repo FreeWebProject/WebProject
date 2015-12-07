@@ -34,5 +34,13 @@ function ad_alert( content, width, height ) {
 		"content": content,
 		"time": 2
 	} ) ;
+}
+
+/**
+ * 打开弹出窗
+ * */
+function ad_open( url, title, width, height ) {
+	var title = title || AD_OPEN_TITLE ;
 	
+	art.dialog.open( url, { "title": title, "width": width + "px", "height": height + "px", "lock": true }, true ) ;
 }

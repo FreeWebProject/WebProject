@@ -18,3 +18,4 @@ var DELETE_SUCCESS = "删除成功。" ;
  * */
 var AD_CONFIRMDELETE_TITLE = "确认删除对话框" ;
 var AD_CONFIRMDELETE = "确认删除吗？" ;
+var AD_OPEN_TITLE = "弹出窗口" ;

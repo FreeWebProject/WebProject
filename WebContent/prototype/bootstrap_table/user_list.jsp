@@ -37,27 +37,34 @@
     		} ) ;
 	    }
 	};
+	
+	// 新建
+	function user_add() {
+		ad_open( "prototype/bootstrap_table/user_add.jsp", "新建用户", "770", "250" ) ;
+	}
 </script>
 </head>
 <body>
-	<div id="toolbar" class="btn-group">
-		<button type="button" class="btn btn-default" title="新建">
-			<i class="glyphicon glyphicon-plus"></i>
-		</button>
-		<button type="button" class="btn btn-danger" title="删除">
-			<i class="glyphicon glyphicon-trash"></i>
-		</button>
+	<div class="container-fluid">
+		<div id="toolbar" class="btn-group">
+			<button type="button" class="btn btn-default" title="新建" onclick="user_add() ;">
+				<i class="glyphicon glyphicon-plus"></i>
+			</button>
+			<button type="button" class="btn btn-danger" title="删除">
+				<i class="glyphicon glyphicon-trash"></i>
+			</button>
+		</div>
+		<table id="btTable" data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
+			<thead>
+				<tr>
+					<th data-checkbox="true"></th>
+					<th data-formatter="bt_order">#</th>
+					<th data-field="name" data-sortable="true">用户名</th>
+					<th data-field="password" data-sortable="true">密码</th>
+					<th data-field="id" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
+				</tr>
+			</thead>
+		</table>
 	</div>
-	<table id="btTable" data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
-		<thead>
-			<tr>
-				<th data-checkbox="true"></th>
-				<th data-formatter="bt_order">#</th>
-				<th data-field="name" data-sortable="true">用户名</th>
-				<th data-field="password" data-sortable="true">密码</th>
-				<th data-field="id" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
-			</tr>
-		</thead>
-	</table>
 </body>
 </html>
