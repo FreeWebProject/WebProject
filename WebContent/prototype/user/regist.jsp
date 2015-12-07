@@ -6,20 +6,10 @@
 <%@ include file="/common/common.jsp" %>
 <title>regist</title>
 
-<link rel="stylesheet" href="common/bootstrap/css/bootstrap-datetimepicker.css">
-<script src="common/bootstrap/js/bootstrap-datetimepicker.js"></script>
-
 <style type="text/css">
-body{background-image: url()}
 .form-group{margin-top: 20px}
 </style>
 <script type="text/javascript">
-$( document ).ready( function() {
-	
-	$('#datetimepicker').datetimepicker({
-	    format: 'yyyy-mm-dd hh:ii'
-	});
-} ) ;
 
 </script>
 </head>
@@ -60,6 +50,7 @@ $( document ).ready( function() {
 			<div class="form-group">
 				<label class="col-md-5 control-label"><span style="color: red">*</span>学历：</label>
 				<div class="col-md-5">
+					<s:select list="#{'0':'小学','1':'初中','2':'高中','3':'本科'}" name="user.education" />
 				</div>
 			</div> 
 			<div class="form-group">
@@ -98,8 +89,6 @@ $( document ).ready( function() {
 	  				<button class="btn btn-primary" type="submit">提交</button>
 			  	</div>
   			</div>
-	
-</s:form>
-		
-	</body>
+	</s:form>
+</body>
 </html>
