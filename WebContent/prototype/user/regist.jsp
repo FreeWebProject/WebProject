@@ -10,85 +10,66 @@
 .form-group{margin-top: 20px}
 </style>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$("#success").hide() ;
+	    $("#fail").hide() ;
+	}) ;
+   function verifyUsername(){
+	   $("#success").hide() ;
+	   $("#fail").hide() ;
+	   var name = $( "[placeholder = 'username']" ).val() ;
+	   
+	   $.ajax({
+		  	"url": "user/verifyUsername",
+			"type": "post",
+			"dataType": "text",
+			"data": { "textData": name },
+		  	 success: function(data){
+		  		 if( data == "1" ){
+		  		   $("#fail").show() ;
+		  	   }else{
+		  		   $("#success").show() ;
+		  	   }
+		 	  }
+	   }) ;
+	   
+	  
+	   
+   }
 </script>
 </head>
 <body>
 	<s:form cssClass="container-fluid" action="regist" namespace="/user" method="POST">
 		<div class="form-horizontal">
-			<h1 class="text-center">用户注册</h1>
-			<div class="form-group">
-				<label class="col-md-5 control-label"><span style="color: red">*</span>姓名：</label>
+			<fieldset>
+			<legend><h2>用户注册</h2></legend>
+			<div class="form-group has-feedback input-lg">
+				<label class="col-md-5 control-label"><span style="color: red">*</span>用户名：</label>
 				<div class="col-md-6">
-					<s:textfield cssClass="validate[required,custom[noSpecialCaracters],length[0,20]]" name="user.name" />
+					<s:textfield cssClass="validate[required,custom[noSpecialCaracters],length[0,20]]  input-lg" onblur="verifyUsername() ;" placeholder="username" name="user.name" />
+					<span style="color:red ;" id="success">该用户名可用</span>
+					<span style="color:red ;" id="fail">用户名已存在</span>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-xs-5 control-label"><span style="color: red">*</span>性别：</label>
-				<div class="col-xs-2">
-	  	  			<s:radio list="#{ '0':'男','1':'女' }" name="user.sex" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-5 control-label"><span style="color: red">*</span>年龄：</label>
-				<div class="col-md-5">
-					<s:textfield cssClass="validate[required]" name="user.age" /> 
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-5 control-label"><span style="color: red">*</span>出生年月：</label>
-				<div class="col-md-5" >
-					<s:textfield cssClass="validate[required] form-date"  name="user.birthday" /> 
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-5 control-label">兴趣爱好：</label>
-				<div class="col-md-3">
-					<s:checkboxlist list="#{'0':'篮球','1':'足球','2':'乒乓球','3':'羽毛球'}" name="user.hobby" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-5 control-label"><span style="color: red">*</span>学历：</label>
-				<div class="col-md-5">
-					<s:select list="#{'0':'小学','1':'初中','2':'高中','3':'本科'}" name="user.education" />
-				</div>
-			</div> 
-			<div class="form-group">
-				<label class="col-md-5 control-label"><span style="color: red">*</span>手机号：</label>
-				<div class="col-md-5">
-					<s:textfield cssClass="validate[required,custom[phone]]" name="user.phone" id="phone"/> 
-				</div>
-			</div>
-			<div class="form-group">
+			<div class="form-group input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span> 密码：</label>
 				<div class="col-md-5">
-					<s:password cssClass="validate[required,length[6,11]]" name="user.password" id="password"/> 
+					<s:password cssClass="validate[required,length[6,11]] input-lg" placeholder="password" name="user.password" id="password"/> 
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span>确认密码：</label>
 				<div class="col-md-5">
-					<s:password cssClass="validate[required, confirm[password]]" name="confirpassword"/>
+					<s:password cssClass="validate[required, confirm[password]] input-lg" placeholder="confirm  passowrd" name="confirpassword"/>
 				</div>
 			</div>
+			</fieldset>
 			<div class="form-group">
-				<label class="col-md-5 control-label"> 电子邮箱：</label>
-				<div class="col-md-5">
-					<s:textfield cssClass="validate[optional,custom[email]]" name="user.email" /> 
-				</div>
+				<label class="col-md-6 control-label">
+					<button class="btn btn-primary btn-lg" type="submit">点击注册</button>
+				</label>
 			</div>
-			<div class="form-group">
-				<label class="col-md-5 control-label"> 自我介绍：</label>
-				<div class="col-md-6">
-					<s:textarea cssClass="validate[optional,length[6,300]]" name="user.self" /> 
-				</div>
-			</div>
-		</div>
-			<div class="navbar-fixed-bottom">
-	  			<div class="container-fluid text-center">
-	  				<button class="btn btn-primary" type="submit">提交</button>
-			  	</div>
-  			</div>
+  		</div>
 	</s:form>
 </body>
 </html>
