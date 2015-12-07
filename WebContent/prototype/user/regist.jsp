@@ -25,10 +25,6 @@ $( document ).ready( function() {
 </head>
 <body>
 	<s:form cssClass="container-fluid" action="regist" namespace="/user" method="POST">
-	
-	
-	<input type="text" value="2012-05-15 21:05" id="datetimepicker">
-
 		<div class="form-horizontal">
 			<h1 class="text-center">用户注册</h1>
 			<div class="form-group">
@@ -55,19 +51,6 @@ $( document ).ready( function() {
 					<s:textfield cssClass="validate[required] form-date"  name="user.birthday" /> 
 				</div>
 			</div>
-			
-			  <div class="form-group">
-	                <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
-	                <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-	                    <input class="form-control" size="16" type="text" value="" readonly>
-	                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-	                </div>
-					<input type="hidden" id="dtp_input1" value="" /><br/>
-	            </div>
-	            
-	            
-	
 			<div class="form-group">
 				<label class="col-md-5 control-label">兴趣爱好：</label>
 				<div class="col-md-3">
@@ -96,7 +79,6 @@ $( document ).ready( function() {
 				<div class="col-md-5">
 					<s:password cssClass="validate[required, confirm[password]]" name="confirpassword"/>
 				</div>
-				<button type="button" onclick="clickk() ;">click</button>
 			</div>
 			<div class="form-group">
 				<label class="col-md-5 control-label"> 电子邮箱：</label>
