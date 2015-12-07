@@ -13,6 +13,8 @@ import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.ResponseUtil;
 
+import net.sf.json.JSONObject;
+
 /*
  * @Component --- spring注解，将这个类交给spring来管理  value 为他的名字
  * @Scope --- spring注解，指定Component的scope  action一定要指定为 "prototype"
@@ -72,6 +74,21 @@ public class UserAction extends ActionUtil {
 		User user = new User() ;
 		user.setId( textData ) ;
 		hibernateUtil.delete( user ) ;
+	}
+	
+	// 保存或更新 ajax
+	@Action(
+		value = "saveOrUpdateByAjax",
+		results = { @Result( type = "json" ) }
+	)
+	public void saveOrUpdateByAjax() {
+		User user = (User) JSONObject.toBean( JSONObject.fromObject( jsonData ), User.class ) ;
+		if( user.getId() != null && "".equals( user.getId() ) ) {
+			user.setId( null ) ;
+		}
+		user = (User) hibernateUtil.saveOrUpdate( user ) ;
+		
+		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
 	}
 	
 	public User getUser() {

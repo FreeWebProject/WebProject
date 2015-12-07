@@ -6,10 +6,29 @@
 <%@ include file="/common/common.jsp" %>
 <title>新增用户</title>
 <script type="text/javascript">
+	
+	// 保存
+	function save() {
+		$.ajax( {
+			"url": "user/saveOrUpdateByAjax.action",
+			"type": "post",
+			"data": { jsonData: getJson( "user" ) },
+			"dataType": "json",
+			"success": function( data ) {
+				setParameter( "user.id", data.id ) ;
+				ad_alert( SAVE_SUCCESS ) ;
+			},
+			"error": function() {
+				alert( "error" ) ;
+			}
+		} ) ;
+	}
+
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid form-horizontal mt20" action="" namespace="" method="post">
+	<s:form cssClass="container-fluid form-horizontal mt20">
+		<s:hidden name="user.id" />
 	
 		<div class="form-group">
 			<label class="col-sm-2 control-label">用户名</label>
@@ -31,6 +50,13 @@
 				<s:textfield cssClass="form-control" name="user.confirmPassword" />
 			</div>
 		</div>
+		
+		<div class="navbar-fixed-bottom">
+  			<div class="container-fluid text-center">
+  				<button class="btn btn-primary" type="button" onclick="save() ;">保存</button>
+  				<button class="btn btn-default" onclick="ad_close() ;">返回</button>
+		  	</div>
+  		</div>
 		
 	</s:form>
 </body>

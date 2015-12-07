@@ -77,3 +77,6 @@
 
 <!-- 用于artDialog的方法 -->
 <script src="common/script/artDialog/artDialog.js"></script>
+
+<!-- 用于 parameter 的方法 -->
+<script src="common/script/parameter/parameter.js"></script>

@@ -14,6 +14,11 @@ var FORM_VALIDATOR = true ;
 var DELETE_SUCCESS = "删除成功。" ;
 
 /**
+ * 保存成功
+ * */
+var SAVE_SUCCESS = "保存成功。" ;
+
+/**
  * artDialog 用语
  * */
 var AD_CONFIRMDELETE_TITLE = "确认删除对话框" ;
