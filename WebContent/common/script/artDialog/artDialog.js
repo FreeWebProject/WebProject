@@ -44,3 +44,10 @@ function ad_open( url, title, width, height ) {
 	
 	art.dialog.open( url, { "title": title, "width": width + "px", "height": height + "px", "lock": true }, true ) ;
 }
+
+/**
+ * 关闭弹出窗
+ * */
+function ad_close() {
+	art.dialog.close() ;
+}
