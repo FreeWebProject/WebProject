@@ -10,27 +10,16 @@
 .form-group{margin-top: 20px}
 </style>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#success").hide() ;
-	    $("#fail").hide() ;
-	}) ;
    function verifyUsername(){
-	   $("#success").hide() ;
-	   $("#fail").hide() ;
-	   var name = $( "[placeholder = 'username']" ).val() ;
-	   
-	   $.ajax({
-		  	"url": "user/verifyUsername",
-			"type": "post",
-			"dataType": "text",
-			"data": { "textData": name },
-		  	 success: function(data){
-		  		 if( data == "1" ){
-		  		   $("#fail").show() ;
-		  	   }else{
-		  		   $("#success").show() ;
-		  	   }
-		 	  }
+	   ajax_callText("user/verifyUsername",getParameter( "user.name" ),function(data){
+		   if( data == "1" ){
+	  		   $("#fail").show() ;
+	  		   $("#success").hide() ;
+	  	   }
+		   if( data == "0" ){
+	  		   $("#success").show() ;
+	  		   $("#fail").hide() ;
+	  	   }
 	   }) ;
    }
 </script>
@@ -42,22 +31,24 @@
 			<legend><h2>用户注册</h2></legend>
 			<div class="form-group has-feedback input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span>用户名：</label>
-				<div class="col-md-6">
-					<s:textfield cssClass="validate[required,custom[noSpecialCaracters],length[0,20]]  input-lg" onblur="verifyUsername() ;" placeholder="username" name="user.name" />
-					<span style="color:red ;" id="success">该用户名可用</span>
-					<span style="color:red ;" id="fail">用户名已存在</span>
+				<div class="col-md-3">
+					<s:textfield cssClass="validate[required,custom[noSpecialCaracters],length[0,20]]  input-lg form-control" onblur="verifyUsername() ;" placeholder="请输入用户名" name="user.name" />
+				</div>
+				<div class="col-md-4">
+					<span style="color:red ; display:none ;" id="success">用户名可用</span>
+					<span style="color:red ; display:none ;" id="fail">用户名已存在</span>
 				</div>
 			</div>
 			<div class="form-group input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span> 密码：</label>
-				<div class="col-md-5">
-					<s:password cssClass="validate[required,length[6,11]] input-lg" placeholder="password" name="user.password" id="password"/> 
+				<div class="col-md-3">
+					<s:password cssClass="validate[required,length[6,11]] input-lg form-control" placeholder="请输入密码" name="user.password" id="password"/> 
 				</div>
 			</div>
 			<div class="form-group input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span>确认密码：</label>
-				<div class="col-md-5">
-					<s:password cssClass="validate[required, confirm[password]] input-lg" placeholder="confirm  passowrd" name="confirpassword"/>
+				<div class="col-md-3">
+					<s:password cssClass="validate[required, confirm[password]] input-lg form-control" placeholder="请再次输入密码" name="confirpassword"/>
 				</div>
 			</div>
 			</fieldset>
