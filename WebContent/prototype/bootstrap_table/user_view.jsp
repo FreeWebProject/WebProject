@@ -9,7 +9,7 @@
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid mt30" action="" namespace="" method="POST">
+	<s:form cssClass="container-fluid mt30" action="view" namespace="/user" method="POST">
   		<div class="form-horizontal">
   			<s:iterator value="userList">
 	    		<div class="form-group">
