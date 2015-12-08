@@ -300,6 +300,26 @@ html, body, .container-fluid {
 				</div>
 			</div>
 			
+			
+						<!-- three -->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">测试 </a>
+					</h4>
+				</div>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+				<div class="panel-body">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active" role="presentation">
+							<a href="prototype/user/testDialog.jsp">art.Dialog</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			
 		</div>
 	</div>
 </body>

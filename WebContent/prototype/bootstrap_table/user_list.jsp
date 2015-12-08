@@ -21,12 +21,14 @@
 	
 	window.actionEvents = {
 	    'click .view': function (e, value, row, index) {
+	    	ad_open( "prototype/bootstrap_table/user_view.jsp", "查看用户信息","770", "250" ) ;
 	        alert('You click like icon, row: ' + JSON.stringify(row));
-	        console.log(value, row, index);
+	        console.log(row);
 	    },
 	    'click .edit': function (e, value, row, index) {
 	        alert('You click edit icon, row: ' + JSON.stringify(row));
 	        console.log(value, row, index);
+	        ajax_calljson();
 	    },
 	    'click .remove': function (e, value, row, index) {
 	    	ad_confirmDelete( function() {
@@ -53,7 +55,7 @@
 			</button>
 			<button type="button" class="btn btn-danger" title="删除">
 				<i class="glyphicon glyphicon-trash"></i>
-			</button>
+			</button> 
 		</div>
 		<table id="btTable" data-toggle="table" data-url="user/queryAllResultJson.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
 			<thead>
