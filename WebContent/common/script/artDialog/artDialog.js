@@ -51,3 +51,10 @@ function ad_open( url, title, width, height ) {
 function ad_close() {
 	art.dialog.close() ;
 }
+
+/**
+ * 获取父页面
+ * */
+function ad_getParent() {
+	return art.dialog.open.origin ;
+}

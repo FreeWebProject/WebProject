@@ -19,3 +19,10 @@ function bt_removeOneRow( tableId, field, value ) {
 		"values": [ value ]
 	} ) ;
 }
+
+/**
+ * 刷新
+ * */
+function bt_refresh( tableId ) {
+	$( "#" + tableId ).bootstrapTable( "refresh" ) ;
+}

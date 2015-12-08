@@ -22,6 +22,13 @@ function setParameter( name, value ) {
 }
 
 /**
+ * 清理所有标签
+ * */
+function cleanAllParameter( name ) {
+	$( "[ name ^= '" + name + ".' ]" ).val( "" ) ;
+}
+
+/**
  * 通过 name 获取字段名，并且组成 json
  * */
 function getJson( name ) {

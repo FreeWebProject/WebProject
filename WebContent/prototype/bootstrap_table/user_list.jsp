@@ -42,6 +42,7 @@
 	function user_add() {
 		ad_open( "prototype/bootstrap_table/user_add.jsp", "新建用户", "770", "250" ) ;
 	}
+	
 </script>
 </head>
 <body>
