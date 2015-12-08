@@ -50,7 +50,7 @@
 	    		<div class="form-group">
 	    			<label class="col-md-2 control-label">学历</label>
 	    			<div class="col-md-4">
-	    				<s:property value="education" />
+	    				<s:property value="education"/>
 	    			</div>
 	    			<label class="col-md-2 control-label">联系电话</label>
 	    			<div class="col-md-4">
