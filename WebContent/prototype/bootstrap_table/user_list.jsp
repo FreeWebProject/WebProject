@@ -21,9 +21,8 @@
 	
 	window.actionEvents = {
 	    'click .view': function (e, value, row, index) {
-	    	ad_open( "prototype/bootstrap_table/user_view.jsp", "查看用户信息","770", "250" ) ;
-	        alert('You click like icon, row: ' + JSON.stringify(row));
-	        console.log(row);
+	    	ad_open( "user/view.action?id=" + value, "查看用户信息" ,"1000", "400" ) ;
+	        
 	    },
 	    'click .edit': function (e, value, row, index) {
 	        alert('You click edit icon, row: ' + JSON.stringify(row));

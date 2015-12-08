@@ -31,6 +31,7 @@ public class UserAction extends ActionUtil {
 	private User user ;
 	private List< User > userList ;
 	private UserDao userDao ;
+	private String id ;
 	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -106,6 +107,18 @@ public class UserAction extends ActionUtil {
 		ResponseUtil.sendMsgToPage( length ) ;
 	}
 	
+	//查看用户信息
+	@SuppressWarnings("unchecked")
+	@Action(
+		value = "view",
+		results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_view.jsp" ) }
+		)
+	public String view(){
+		userList = (List<User>)hibernateUtil.queryWithOneWhere(new User() ,"id", id ) ;
+		
+		return SUCCESS ;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -128,6 +141,14 @@ public class UserAction extends ActionUtil {
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 
