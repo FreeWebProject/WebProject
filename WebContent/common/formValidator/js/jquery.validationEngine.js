@@ -258,7 +258,7 @@ jQuery.fn.validationEngine = function(settings) {
 		
 			startLength = eval(rules[position+1]) ;
 			endLength = eval(rules[position+2]) ;
-			feildLength = $(caller).attr('value').length ;
+			feildLength = $(caller).val().length ;
 
 			if(feildLength<startLength || feildLength>endLength){
 				isError = true ;
