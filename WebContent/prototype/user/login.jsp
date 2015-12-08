@@ -9,24 +9,22 @@
 <body>
 	<s:form cssClass="container-fluid" action="login" namespace="/user" method="POST">
 		<div class="form-horizontal" style="margin-top: 150px">
-			<div class="form-group">
-				<label class="col-md-5 control-label">用户名:</label>
-				<div class="col-md-5">
-					<s:textfield cssClass="" name="user.name" />
+			<div class="form-group has-feedback">
+				<label class="col-md-5 control-label input-lg">用户名:</label>
+				<div class="col-md-2">
+					<s:textfield cssClass="form-control input-lg" name="user.name" />
+					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-5 control-label">密码:</label>
-				<div class="col-md-5">
-					<s:password cssClass="" name="user.password" />
+				<label class="col-md-5 control-label input-lg">密码:</label>
+				<div class="col-md-2">
+					<s:password cssClass="form-control input-lg" name="user.password" />
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-md-6 control-label"><input type="checkbox"> rember me </label>
-  			</div>
   			<div class="form-group">
 				<label class="col-md-6 control-label">
-					<button class="btn btn-primary" type="submit">登陆</button>
+					<button class="btn btn-primary btn-lg" type="submit">登陆</button>
 				</label>
   			</div>
 		</div>
