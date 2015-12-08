@@ -25,14 +25,14 @@ jQuery.fn.validationEngine = function(settings) {
 		allRules = {
 			"required":{    			  // Add your regex rules here, you can take telephone as an example
 				"regex":"none",
-				"alertText":"* This field is required",
+				"alertText":"* 这是必填内容",
 				"alertTextCheckboxMultiple":"* Please select an option",
 				"alertTextCheckboxe":"* This checkbox is required"},
 			"length":{
 				"regex":"none",
-				"alertText":"*Between ",
-				"alertText2":" and ",
-				"alertText3": " characters allowed"},
+				"alertText":"*长度在 ",
+				"alertText2":" 到 ",
+				"alertText3": " 之间"},
 			"minCheckbox":{
 				"regex":"none",
 				"alertText":"* Checks allowed Exceeded"},	
@@ -53,7 +53,7 @@ jQuery.fn.validationEngine = function(settings) {
 				"alertText":"* Numbers only"},	
 			"noSpecialCaracters":{
 				"regex":"/^[0-9a-zA-Z]+$/",
-				"alertText":"* No special caracters allowed"},	
+				"alertText":"* 不允许使用特殊字符"},	
 			"onlyLetter":{
 				"regex":"/^[a-zA-Z\ \']+$/",
 				"alertText":"* Letters only"}
