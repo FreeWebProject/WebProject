@@ -14,7 +14,7 @@
 	   ajax_callText("user/verifyUsername",getParameter( "user.name" ),function(data){
 		   if( data == "1" ){
 	  		   $("#fail").show() ;
-	  		   $("#success").hide() ;
+	  		   $("#success").hide() ; 
 	  	   }
 		   if( data == "0" ){
 	  		   $("#success").show() ;
