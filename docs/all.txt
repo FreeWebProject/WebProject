@@ -37,3 +37,30 @@ spring  spring-framework-4.0.4.RELEASE
 2015-12-03
 继续查找错误原因，经过百度，多数是因为包的问题，有新增json-lib的依赖包，都加全后还是不行。
 意识到是包版本的问题，发现struts2中有两个common-lang包，将低版本的包加进来后，问题解决，但高版本的不能删掉，删掉之后系统无法正常启动，不知为何。
+
+2015-12-08 
+总结之前所做的工作
+
+添加了bootstrap-table bootstrap-table-export 并将bootstrap-table的例子敲了一遍，做出一个成型的demo
+bootstrap-table demo 
+将搜索、显示全部、刷新、选列、导出 放到了表格的右上方，能导出excel 和 word。
+将新建、删除等公共功能放到表格的左上方。给表格加多选功能。
+用图标形式在最后加操作列。
+加#列，显示序号。
+表格下方加分页。
+内容列都有排序功能。
+
+由于有刷新功能，所以现在暂定排序、分页功能都使用前端模式，不从后台处理。
+bootstrap-table 向后台传四个参数，分别为： limit offset order sort 控制分页和排序， 现将四个参数放到了 actionutil 中后续需要后台做分页的话再考虑使用者四个参数。
+
+添加了 formValidator 用于表单验证
+formValidator 本身js比较老，所以做了一些改动，以适应最新的jquery。 添加了验证开关，定义在contants.js中 FORM_VALIDATOR 默认为true 表示使用表单验证，改为false后，不实用表单验证。
+
+添加了 artDialog 用于统一弹出窗
+添加了自定义的 artDialog js文件，稍微包装了一些用于artDialog的方法
+
+添加了自定义的 parameter.js 文件，用于对页面标签的操作
+特别添加了 getJson 的方法，用于取得页面所有一个类的值。可以一次性的传到后台，后台可以用 jsonobject 直接转为一个 bean类
+
+添加了自定义的 ajax.js 文件，简单封装了一些 ajax 的方法。
+
