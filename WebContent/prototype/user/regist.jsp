@@ -32,11 +32,6 @@
 		  	   }
 		 	  }
 	   }) ;
-	   function test(){
-		   
-	   }
-	  
-	   
    }
 </script>
 </head>
