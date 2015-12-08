@@ -74,7 +74,7 @@ public class UserAction extends ActionUtil {
 	)
 	public void delete() {
 		User user = new User() ;
-		user.setId( textData ) ;
+		user.setId( ajaxData ) ;
 		hibernateUtil.delete( user ) ;
 	}
 	
@@ -84,7 +84,7 @@ public class UserAction extends ActionUtil {
 		results = { @Result( type = "json" ) }
 	)
 	public void saveOrUpdateByAjax() {
-		User user = (User) JSONObject.toBean( JSONObject.fromObject( jsonData ), User.class ) ;
+		User user = (User) JSONObject.toBean( JSONObject.fromObject( ajaxData ), User.class ) ;
 		if( user.getId() != null && "".equals( user.getId() ) ) {
 			user.setId( null ) ;
 		}
@@ -100,7 +100,7 @@ public class UserAction extends ActionUtil {
 		results = { @Result( type = "json" ) }
 	)
 	public void verifyUsername(){
-		userList =  (List<User>)hibernateUtil.queryWithOneWhere(new User(), "name", textData) ;
+		userList =  (List<User>)hibernateUtil.queryWithOneWhere(new User(), "name", ajaxData) ;
 		String length = "" + userList.size() ;
 		
 		ResponseUtil.sendMsgToPage( length ) ;

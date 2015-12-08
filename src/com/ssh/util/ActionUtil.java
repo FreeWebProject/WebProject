@@ -3,7 +3,6 @@ package com.ssh.util;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssh.dao.UserDao;
 import com.ssh.dao.impl.HibernateUtilImpl;
 
 @SuppressWarnings("serial")
@@ -13,11 +12,6 @@ public class ActionUtil extends ActionSupport {
 	 * 执行简单数据库操作的工具类
 	 * */
 	protected HibernateUtilImpl hibernateUtil ;
-	
-	/**
-	 * 实体类Dao
-	 * */
-	protected UserDao userDao ;
 	
 	/**
 	 * bootstrap-table所需参数
@@ -30,8 +24,7 @@ public class ActionUtil extends ActionSupport {
 	/**
 	 * 接受 ajax 数据
 	 * */
-	protected String textData ;
-	protected String jsonData ;
+	protected String ajaxData ;
 
 	public HibernateUtilImpl getHibernateUtil() {
 		return hibernateUtil;
@@ -73,29 +66,13 @@ public class ActionUtil extends ActionSupport {
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
-
-	public String getTextData() {
-		return textData;
-	}
-
-	public void setTextData(String textData) {
-		this.textData = textData;
-	}
-
-	public String getJsonData() {
-		return jsonData;
-	}
-
-	public void setJsonData(String jsonData) {
-		this.jsonData = jsonData;
-	}
 	
-	public UserDao getUserDao() {
-		return userDao;
+	public String getAjaxData() {
+		return ajaxData;
 	}
 
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
+	public void setAjaxData(String ajaxData) {
+		this.ajaxData = ajaxData;
 	}
 	
 }
