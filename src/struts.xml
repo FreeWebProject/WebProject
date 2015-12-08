@@ -15,6 +15,13 @@
 	<!-- Struts Annotation -->
 	<constant name="actionPackages" value="com.ssh.action"></constant>
 	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.saveDir" value="upload"></constant>
+	
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" 
+	    name="myRequestParser" class="com.ssh.util.RequestParseWrapper" 
+	    scope="default" optional="true" />
+	
+	<constant name="struts.multipart.handler" value="myRequestParser"></constant>
 	
 	<package name="default" extends="struts-default" namespace="/">
 		<!-- 配置默认action -->
