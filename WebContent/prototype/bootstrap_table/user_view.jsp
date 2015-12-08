@@ -6,15 +6,10 @@
 <%@ include file="/common/common.jsp" %>
 <title>查看页面</title>
 <script type="text/javascript">
- $(document).ready(function(){
-	 alert( art.dialog.get( id )) ;
-	 console.log( id );
- }) ;
- 
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid" action="" namespace="" method="POST" cssStyle="margin-top: 30px;" >
+	<s:form cssClass="container-fluid mt30" action="" namespace="" method="POST">
   		<div class="form-horizontal">
   			<s:iterator value="userList">
 	    		<div class="form-group">

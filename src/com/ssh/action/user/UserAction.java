@@ -30,8 +30,6 @@ public class UserAction extends ActionUtil {
 
 	private User user ;
 	private List< User > userList ;
-	private UserDao userDao ;
-	private String id ;
 	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -114,7 +112,7 @@ public class UserAction extends ActionUtil {
 		results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_view.jsp" ) }
 		)
 	public String view(){
-		userList = (List<User>)hibernateUtil.queryWithOneWhere(new User() ,"id", id ) ;
+		userList = (List<User>)hibernateUtil.queryWithOneWhere(new User() ,"id", user.getId() ) ;
 		
 		return SUCCESS ;
 	}
@@ -134,22 +132,5 @@ public class UserAction extends ActionUtil {
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
 	}
-
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 
 }
