@@ -117,6 +117,19 @@ public class UserAction extends ActionUtil {
 		return SUCCESS ;
 	}
 	
+	//编辑用户信息
+	@SuppressWarnings("unchecked")
+	@Action(
+		value = "edit",
+		results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_edit.jsp")}
+			)
+	public String edit(){
+		userList = (List<User>)hibernateUtil.queryWithOneWhere( new User(), "id", user.getId() ) ;
+		user = userList.get(0) ;
+		
+		return SUCCESS ;
+	}
+	
 	public User getUser() {
 		return user;
 	}

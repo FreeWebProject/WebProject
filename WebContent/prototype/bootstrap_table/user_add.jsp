@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		
-		<div class="navbar-fixed-bottom">
+		<div class="navbar-fixed-bottom" style="margin-bottom:10px">
   			<div class="container-fluid text-center">
   				<button class="btn btn-primary" type="button" onclick="save( 'save' ) ;">保存</button>
   				<button class="btn btn-primary" type="button" onclick="save( 'saveAndClose' ) ;">保存并关闭</button>

@@ -9,7 +9,7 @@
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid mt30" action="view" namespace="/user" method="POST">
+	<s:form cssClass="container-fluid mt40" action="view" namespace="/user" method="POST" style="margin-top:30px">
   		<div class="form-horizontal">
   			<s:iterator value="userList">
 	    		<div class="form-group">
@@ -64,7 +64,7 @@
 	    		</div>
 			</s:iterator>
 		</div>
-		<div class="navbar-fixed-bottom">
+		<div class="navbar-fixed-bottom" style="margin-bottom:10px">
   			<div class="container-fluid text-center">
   				<button class="btn btn-default" type="button" onclick="ad_close() ;">关闭</button>
 		  	</div>
