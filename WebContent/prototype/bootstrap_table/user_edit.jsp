@@ -50,7 +50,7 @@
     		<div class="form-group">
     			<label class="col-xs-2 control-label"><span class="text-danger">*</span>性别</label>
     			<div class="col-xs-4">
-    				<s:radio list="#{'0':'男','1':'女' }" name="user.sex" />
+    				<s:radio list="#{'0':'男','1':'女' }" name="user.sex"/>
     			</div>
     			<label class="col-md-2 control-label">生日</label>
     			<div class="input-group col-md-3 date form_date"> 
