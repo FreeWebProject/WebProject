@@ -6,6 +6,11 @@
 <%@ include file="/common/common.jsp" %>
 <title>查看页面</title>
 <script type="text/javascript">
+	$(function(){ 
+		$("form").mouseover(function (){
+		 	$("input[type='checkbox']").attr("name","user.hobby") ;
+		});
+	});
 	
 	function save( mark ){
 		ajax_callJson("user/saveOrUpdateByAjax.action", getJson( "user" ), function(data){
