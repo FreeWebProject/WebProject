@@ -19,10 +19,7 @@ $(document).ready(function() {
 });
 
 jQuery.fn.validationEngine = function(settings) {
-	if($.validationEngineLanguage){					// IS THERE A LANGUAGE LOCALISATION ?
-		allRules = $.validationEngineLanguage.allRules
-	}else{
-		allRules = {
+	var	allRules = {
 			"required":{    			  // Add your regex rules here, you can take telephone as an example
 				"regex":"none",
 				"alertText":"* 这是必填内容",
@@ -58,22 +55,17 @@ jQuery.fn.validationEngine = function(settings) {
 				"regex":"/^[a-zA-Z\ \']+$/",
 				"alertText":"* Letters only"}
 		}	
-	}
 
  	settings = jQuery.extend({
 		allrules:allRules,
+		ajax: false,
+		close: false,		// 关闭验证的时候使用
 		success : false,
 		failure : function() {}
 	}, settings);	
-
-
-	$("form").bind("submit", function(caller){   // ON FORM SUBMIT, CONTROL AJAX FUNCTION IF SPECIFIED ON DOCUMENT READY
-		
-		// 表单验证开关
-		if( !FORM_VALIDATOR ) {
-			return ;
-		}
-		
+	
+	// 判断是不是ajax提交，默认为false
+	if( settings.ajax ) {
 		if(submitValidation(this) == false){
 			if (settings.success){
 				settings.success && settings.success(); 
@@ -83,7 +75,30 @@ jQuery.fn.validationEngine = function(settings) {
 			settings.failure && settings.failure(); 
 			return false;
 		}
-	})
+		
+		return ;
+	}
+
+
+	// 关闭验证使用
+	if( settings.close ) {
+		$( "form" ).bind( "submit", function() {} ) ;
+		return ;
+	} else {
+		$("form").bind("submit", function( caller ) {
+			
+			if(submitValidation(this) == false){
+				if (settings.success){
+					settings.success && settings.success(); 
+					return false;
+				}
+			}else{
+				settings.failure && settings.failure(); 
+				return false;
+			}
+		} ) ;
+	}
+	
 	$(this).not("[type='checkbox']").bind("blur", function(caller){loadValidation(this)}) ;
 	$(this).find("[type='checkbox']").bind("click", function(caller){loadValidation(this)}) ;
 	
@@ -146,7 +161,7 @@ jQuery.fn.validationEngine = function(settings) {
 		rulesParsing = $(caller).attr('class');
 		rulesRegExp = /\[(.*)\]/;
 		getRules = rulesRegExp.exec(rulesParsing);
-		str = getRules[1]
+		str = getRules[1] ;
 		pattern = /\W+/;
 		result= str.split(pattern);	
 		
@@ -165,8 +180,8 @@ jQuery.fn.validationEngine = function(settings) {
 			switch (rules[i]){
 			case "optional": 
 				if(!$(caller).val()){
-					closePrompt(caller)
-					return isError
+					closePrompt(caller) ;
+					return isError ;
 				}
 			break;
 			case "required": 
@@ -187,6 +202,7 @@ jQuery.fn.validationEngine = function(settings) {
 			default :;
 			};
 		};
+		
 		if (isError == true){
 			
 			if($("input[name='"+prompt+"']").size()> 1 && callerType == "radio") {		// Hack for radio group button, the validation go the first radio
@@ -241,7 +257,8 @@ jQuery.fn.validationEngine = function(settings) {
 			customRule = rules[position+1] ;
 			pattern = eval(settings.allrules[customRule].regex) ;
 			
-			if(!pattern.test($(caller).attr('value'))){
+			// custom的不判空，判空都用required
+			if( $(caller).val() != "" && !pattern.test($(caller).attr('value'))){
 				isError = true ;
 				promptText += settings.allrules[customRule].alertText+"<br />" ;
 			}
@@ -277,13 +294,13 @@ jQuery.fn.validationEngine = function(settings) {
 			}
 		}
 
-		return(isError) ? isError : false;
+		return (isError) ? isError : false;
 	};
-	var closePrompt = function(caller) {	// CLOSE PROMPT WHEN ERROR CORRECTED
+	function closePrompt(caller) {	// CLOSE PROMPT WHEN ERROR CORRECTED
 		closingPrompt = $(caller).attr("name") ;
 
-		$("."+closingPrompt).fadeTo("fast",0,function(){
-			$("."+closingPrompt).remove() ;
+		$( "[ class ~= '" + closingPrompt + "' ]" ).fadeTo("fast",0,function(){
+			$( "[ class ~= '" + closingPrompt + "' ]" ).remove() ;
 		});
 	};
 	function submitValidation(caller) {	// FORM SUBMIT VALIDATION LOOPING INLINE VALIDATION
