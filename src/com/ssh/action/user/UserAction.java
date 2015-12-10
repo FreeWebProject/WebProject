@@ -1,6 +1,5 @@
 package com.ssh.action.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -10,7 +9,6 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.ssh.dao.UserDao;
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.ResponseUtil;

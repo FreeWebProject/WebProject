@@ -46,7 +46,7 @@
     		<div class="form-group">
     			<label class="col-xs-2 control-label">兴趣爱好</label>
     			<div class="col-xs-4">
-    				<s:checkboxlist id="checkbox" list="#{'0':'游泳','1':'篮球','2':'足球','3':'排球'}" name="user.hobby"/>
+    				<s:checkboxlist list="#{'0':'游泳','1':'篮球','2':'足球','3':'排球'}" name="user.hobby" />
     			</div>
     			<label class="col-md-2 control-label"><span style="color:red">*</span>学历</label>
     			<div class="col-md-4">
