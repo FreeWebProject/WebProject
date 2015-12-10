@@ -25,40 +25,69 @@
 	    		<div class="form-group">
 	    			<label class="col-md-2 control-label">性别</label>
 	    			<div class="col-md-4">
-	    				<s:property value="sex" />
+	    				<s:if test="sex eq '0'">
+	    					男
+	    				</s:if>
+	    				<s:else>
+	    					女
+	    				</s:else>
 	    			</div>
-	    			<label class="col-md-2 control-label">年龄</label>
-	    			<div class="col-md-4">
-	    				<s:property value="age" />
-	    			</div>
-	    		</div>
-	    		<div class="form-group">
 	    			<label class="col-md-2 control-label">生日</label>
 	    			<div class="col-md-4">
 	    				<s:property value="birthday" />
 	    			</div>
+	    		</div>
+	    		<div class="form-group">
 	    			<label class="col-md-2 control-label">兴趣爱好</label>
 	    			<div class="col-md-4">
-	    				<s:property value="hobby" />
+	    			
+						<s:generator val="%{hobby}" separator="," id="iter1">
+						</s:generator>
+						<s:iterator status="st" value="#request.iter1" id="name1">
+							<s:if test="name1 eq '2'">
+								足球
+							</s:if>
+						
+							<s:property value="name1" />
+						</s:iterator>
+						
+						
+					</div>
+	    			<label class="col-md-2 control-label">学历</label>
+	    			<div class="col-md-4">
+		    			<s:if test="education eq '0'">
+		    				小学
+		    			</s:if>
+		    			<s:elseif test="education eq '1'">
+		    				初中
+		    			</s:elseif>
+		    			<s:elseif test="education eq '2'">
+		    				高中
+		    			</s:elseif>
+		    			<s:elseif test="education eq '3'">
+		    				本科
+		    			</s:elseif>
+		    			<s:elseif test="education eq '4'">
+		    				硕士
+		    			</s:elseif>
+		    			<s:else>
+		    				博士
+		    			</s:else>
 	    			</div>
 	    		</div>
 	    		<div class="form-group">
-	    			<label class="col-md-2 control-label">学历</label>
-	    			<div class="col-md-4">
-	    				<s:property value="education"/>
-	    			</div>
 	    			<label class="col-md-2 control-label">联系电话</label>
 	    			<div class="col-md-4">
 	    				<s:property value="phone" />
 	    			</div>
-	    		</div>
-	    		<div class="form-group">
 	    			<label class="col-md-2 control-label">邮箱</label>
 	    			<div class="col-md-4">
 	    				<s:property value="email" />
 	    			</div>
-	    			<label class="col-md-2 control-label">自我介绍</label>
-	    			<div class="col-md-4">
+	    		</div>
+	    		<div class="form-group">
+	    			<label class="col-sm-2 control-label">自我介绍</label>
+	    			<div class="col-sm-10">
 	    				<s:property value="self" />
 	    			</div>
 	    		</div>

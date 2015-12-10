@@ -93,9 +93,9 @@ public class UserAction extends ActionUtil {
 		if( user.getId() != null && "".equals( user.getId() ) ) {
 			user.setId( null ) ;
 		}
-//		if( hobby != null && "".equals(hobby)){
-//			user.setHobby( hobby.toString().substring( 1, hobby.toString().length() - 1 ) );
-//		}
+		if( hobby != null && "".equals(hobby)){
+			user.setHobby( hobby.toString().substring( 1, hobby.toString().length() - 1 ) );
+		}
 		user = (User) hibernateUtil.saveOrUpdate( user ) ;
 		
 		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
@@ -136,12 +136,14 @@ public class UserAction extends ActionUtil {
 	public String edit(){
 		userList = (List<User>)hibernateUtil.queryWithOneWhere( new User(), "id", user.getId() ) ;
 		user = userList.get(0) ;
-//		
-//		String[] strs = userList.get(0).getHobby().split(",");
-//		hobby = new ArrayList<String>() ;
-//		for(String s : strs){
-//			hobby.add(s);
-//		}
+		System.out.println(user.getHobby() );
+		if(user.getHobby() != null) {
+			String[] strs = user.getHobby().split(",");
+			hobby = new ArrayList<String>() ;
+			for(String s : strs){
+				hobby.add(s);
+			}
+		}
 		
 		return SUCCESS ;
 	}

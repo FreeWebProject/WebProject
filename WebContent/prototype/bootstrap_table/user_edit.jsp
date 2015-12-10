@@ -6,6 +6,11 @@
 <%@ include file="/common/common.jsp" %>
 <title>查看页面</title>
 <script type="text/javascript">
+	$(function(){ 
+		$("form").mouseover(function (){
+		 	$("input[type='checkbox']").attr("name","user.hobby") ;
+		});
+	});
 	
 	function save( mark ){
 		ajax_callJson("user/saveOrUpdateByAjax.action", getJson( "user" ), function(data){
@@ -46,7 +51,7 @@
     		<div class="form-group">
     			<label class="col-xs-2 control-label">兴趣爱好</label>
     			<div class="col-xs-4">
-    				<s:checkboxlist id="checkbox" list="#{'0':'游泳','1':'篮球','2':'足球','3':'排球'}" name="user.hobby"/>
+    				<s:checkboxlist id="checkbox" list="#{'0':'游泳','1':'篮球','2':'足球','3':'排球'}" name="hobby"/>
     			</div>
     			<label class="col-md-2 control-label"><span style="color:red">*</span>学历</label>
     			<div class="col-md-4">
