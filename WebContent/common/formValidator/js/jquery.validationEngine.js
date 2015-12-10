@@ -41,10 +41,10 @@ jQuery.fn.validationEngine = function(settings) {
 				"alertText":"* Your field is not matching"},		
 			"telephone":{
 				"regex":"/^[0-9\-\(\)\ ]+$/",
-				"alertText":"* Invalid phone number"},	
+				"alertText":"* 无效的手机号"},	
 			"email":{
 				"regex":"/^[a-zA-Z0-9_\.\-]+\@([a-zA-Z0-9\-]+\.)+[a-zA-Z0-9]{2,4}$/",
-				"alertText":"* Invalid email address"},	
+				"alertText":"* 无效的邮箱地址"},	
 			"date":{
                  "regex":"/^[0-9]{4}\-\[0-9]{1,2}\-\[0-9]{1,2}$/",
                  "alertText":"* Invalid date, must be in YYYY-MM-DD format"},

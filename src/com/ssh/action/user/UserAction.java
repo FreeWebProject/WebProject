@@ -1,5 +1,6 @@
 package com.ssh.action.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -30,7 +31,10 @@ public class UserAction extends ActionUtil {
 
 	private User user ;
 	private List< User > userList ;
+	private List< String > hobby ;
 	
+
+
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
 	 * */
@@ -40,6 +44,8 @@ public class UserAction extends ActionUtil {
 		results = { @Result( name = "success", location = "/index.jsp" ), @Result( name = "error", location = "/error.jsp" ) }
 	)
 	public String saveOrUpdate() {
+		
+		
 		hibernateUtil.saveOrUpdate( user ) ;
 		
 		return SUCCESS ;
@@ -87,6 +93,9 @@ public class UserAction extends ActionUtil {
 		if( user.getId() != null && "".equals( user.getId() ) ) {
 			user.setId( null ) ;
 		}
+//		if( hobby != null && "".equals(hobby)){
+//			user.setHobby( hobby.toString().substring( 1, hobby.toString().length() - 1 ) );
+//		}
 		user = (User) hibernateUtil.saveOrUpdate( user ) ;
 		
 		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
@@ -115,6 +124,7 @@ public class UserAction extends ActionUtil {
 		userList = (List<User>)hibernateUtil.queryWithOneWhere(new User() ,"id", user.getId() ) ;
 		
 		return SUCCESS ;
+		
 	}
 	
 	//编辑用户信息
@@ -126,6 +136,12 @@ public class UserAction extends ActionUtil {
 	public String edit(){
 		userList = (List<User>)hibernateUtil.queryWithOneWhere( new User(), "id", user.getId() ) ;
 		user = userList.get(0) ;
+//		
+//		String[] strs = userList.get(0).getHobby().split(",");
+//		hobby = new ArrayList<String>() ;
+//		for(String s : strs){
+//			hobby.add(s);
+//		}
 		
 		return SUCCESS ;
 	}
@@ -144,6 +160,14 @@ public class UserAction extends ActionUtil {
 
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
+	}
+	
+	public List<String> getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(List<String> hobby) {
+		this.hobby = hobby;
 	}
 
 }
