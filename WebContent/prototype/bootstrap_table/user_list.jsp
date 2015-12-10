@@ -22,7 +22,6 @@
 	window.actionEvents = {
 	    'click .view': function (e, value, row, index) {
 	    	ad_open( "user/view.action?user.id=" + value, "查看用户信息" ,"1000", "400" ) ;
-	        
 	    },
 	    'click .edit': function (e, value, row, index) {
 	    	ad_open( "user/edit.action?user.id=" + value, "编辑用户信息" ,"1000", "400" ) ;

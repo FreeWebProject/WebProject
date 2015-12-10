@@ -33,20 +33,12 @@ function cleanAllParameter( name ) {
  * */
 function getJson( name ) {
 	var result = {} ;
-	// var str = "" ;
-	
-	 /*$( "input[type='checkbox']" ).each(function(index, element ){
-		 if($( this ).is(":checked")){
-			 str += $( this ).val() + "," ;
-			 result[ $( this ).attr( "name" ) ] = str ;
-		 }
-	 }) ;*/
 	 
 	$( "[ name ^= '" + name + ".' ]" ).each( function( index, element ) {
 		if( $( this ).attr("type") == "radio" && $( this ).prop( "checked" ) == false ){
 			// 不处理没有被选中的radio
 		} else if( $( this ).attr( "type" ) == "checkbox" && $( this ).prop( "checked" ) == false ) {
-			
+			// 不处理没有被选中的checkbox
 		} else {
 			if( result[ $( this ).attr( "name" ).substring( name.length + 1 ) ] == undefined ) {
 				result[ $( this ).attr( "name" ).substring( name.length + 1 ) ] = $( this ).val() ;
@@ -57,11 +49,5 @@ function getJson( name ) {
 		
 	} ) ;
 
-	
-	/*	$( "[ name ^= '" + name + ".' ]" ).each( function( index, element ) {
-			result[ $( this ).attr( "name" ).substring( name.length + 1 ) ] = $( this ).val() ;
-	} ) ;*/
-	
-	
 	return JSON.stringify( result ) ;
 }

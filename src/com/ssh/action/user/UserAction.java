@@ -10,7 +10,6 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.ssh.dao.UserDao;
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.ResponseUtil;
@@ -32,8 +31,6 @@ public class UserAction extends ActionUtil {
 	private User user ;
 	private List< User > userList ;
 	private List< String > hobby ;
-	
-
 
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -44,8 +41,6 @@ public class UserAction extends ActionUtil {
 		results = { @Result( name = "success", location = "/index.jsp" ), @Result( name = "error", location = "/error.jsp" ) }
 	)
 	public String saveOrUpdate() {
-		
-		
 		hibernateUtil.saveOrUpdate( user ) ;
 		
 		return SUCCESS ;
@@ -115,32 +110,29 @@ public class UserAction extends ActionUtil {
 	}
 	
 	//查看用户信息
-	@SuppressWarnings("unchecked")
 	@Action(
 		value = "view",
 		results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_view.jsp" ) }
 		)
 	public String view(){
-		userList = (List<User>)hibernateUtil.queryWithOneWhere(new User() ,"id", user.getId() ) ;
+		user = (User)hibernateUtil.queryWithOneWhere(new User() ,"id", user.getId() ).get( 0 ) ;
 		
 		return SUCCESS ;
 		
 	}
 	
 	//编辑用户信息
-	@SuppressWarnings("unchecked")
 	@Action(
 		value = "edit",
 		results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_edit.jsp")}
-			)
+	)
 	public String edit(){
-		userList = (List<User>)hibernateUtil.queryWithOneWhere( new User(), "id", user.getId() ) ;
-		user = userList.get(0) ;
-		System.out.println(user.getHobby() );
-		if(user.getHobby() != null) {
+		user = (User)hibernateUtil.queryWithOneWhere( new User(), "id", user.getId() ).get( 0 ) ;
+		
+		if( user.getHobby() != null ) {
 			String[] strs = user.getHobby().split(",");
 			hobby = new ArrayList<String>() ;
-			for(String s : strs){
+			for( String s : strs ) {
 				hobby.add(s);
 			}
 		}
