@@ -22,8 +22,8 @@
 <!-- bootstrap-table 核心 CSS 文件 -->
 <link rel="stylesheet" href="common/bootstrap_table/bootstrap-table.css">
 
-<!-- datepicker CSS文件 -->
-<link rel="stylesheet" href="common/bootstrap/css/bootstrap-datetimepicker.css">
+<!-- datetimepicker --> 
+<link rel="stylesheet" type="text/css" href="common/datetimerpicker/css/bootstrap-datetimepicker.css">
 
 <!-- argDialog -->
 <link rel="stylesheet" type="text/css" href="common/artDialog/skins/twitter.css" />
@@ -59,8 +59,10 @@
 <script src="common/bootstrap_table/extensions/export/bootstrap-table-export.js"></script>
 <script src="common/tableExport/tableExport.js"></script>
 
-<!-- datepicker 核心 JavaScript 文件 -->
-<script src="common/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<!-- datetimepicker -->
+<script type="text/javascript" src="common/datetimerpicker/js/bootstrap-datetimepicker.js" ></script>
+<script type="text/javascript" src="common/datetimerpicker/js/locales/bootstrap-datetimepicker.zh-CN.js" ></script>
+
 
 <!-- argDialog -->
 <script src="common/artDialog/artDialog.source.js"></script>
@@ -80,3 +82,44 @@
 
 <!-- 用于 parameter 的方法 -->
 <script src="common/script/parameter/parameter.js"></script>
+
+
+<script type="text/javascript">
+		
+	 $( document ).ready( function() {
+		// 只有年-月-日的方法，实现类form_date即可
+		$('.form_date').datetimepicker({
+			language: "zh-CN",		// 中文
+			format: "yyyy-mm-dd",	// 格式
+	        autoclose: true,		// 自动关闭
+	        todayBtn: true,			// “今天”按钮
+	        todayHighlight: true,	// 高亮显示今天
+	        startView: 2,			// 开始视图
+			minView: 2
+	    });
+			
+		// 只有年-月的方法，实现类form_year即可
+		$('.form_month').datetimepicker({
+			language: "zh-CN",			// 中文
+			format: "yyyy-mm",			// 格式
+	        autoclose: true,			// 自动关闭
+	        todayBtn: true,				// “今天”按钮
+	        todayHighlight: true,		// 高亮显示今天
+	        startView: 3,				// 开始视图
+			minView: 3,					// 最小视图 。。。
+	        pickerPosition: "bottom-left"	// 位置
+	    });
+		
+		// 只有年的方法，实现类form_year即可
+		$('.form_year').datetimepicker({
+			language: "zh-CN",			// 中文
+			format: "yyyy",				// 格式
+	        autoclose: true,			// 自动关闭
+	        todayBtn: true,				// “今天”按钮
+	        todayHighlight: true,		// 高亮显示今天
+	        startView: 4,				// 开始视图
+			minView: 4,					// 最小视图 。。。
+	        pickerPosition: "bottom-left"	// 位置
+	    });
+	}) ;
+</script>

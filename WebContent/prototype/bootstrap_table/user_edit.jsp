@@ -44,8 +44,10 @@
     				<s:radio list="#{'0':'男','1':'女' }" name="user.sex" />
     			</div>
     			<label class="col-md-2 control-label">生日</label>
-    			<div class="col-md-4">
-    				<s:textfield cssClass="form-control" name="user.birthday" placeholder="xxxx-xx-xx"/>
+    			<div class="input-group col-md-3 date form_date"> 
+    				<s:textfield cssClass="validate[required, length[0,32]] form-control" name="user.birthday" />
+    				<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     			</div>
     		</div>
     		<div class="form-group">
