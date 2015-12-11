@@ -43,4 +43,11 @@ public interface HibernateUtil {
 	 * 返回值：
 	 * */
 	void delete( Object entity ) ;
+	
+	/**
+	 * 删除多个<br>
+	 * 参数：entity = 实体类， whereColumn = 条件字段，whereValue[] = 条件值数组<br>
+	 * 返回值：删除的个数
+	 * */
+	int delete( Object entity, String whereColumn, String[] whereValue ) ;
 }

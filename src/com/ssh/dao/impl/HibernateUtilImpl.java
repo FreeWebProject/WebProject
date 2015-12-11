@@ -77,5 +77,26 @@ public class HibernateUtilImpl implements HibernateUtil {
 		session.delete( entity ) ;
 	}
 
+	@Override
+	public int delete(Object entity, String whereColumn, String[] whereValue) {
+		session = sessionFactory.getCurrentSession() ;
+		
+		StringBuffer hql = new StringBuffer() ;
+		hql.append( "delete " ) ;
+		hql.append( entity.getClass().getName() ).append( " " ) ;
+		hql.append( "where " ) ;
+		hql.append( whereColumn ).append( " = '" ).append( whereValue[ 0 ] ).append( "' " ) ;
+		
+		if( whereValue.length > 1 ) {
+			for( int i = 1; i < whereValue.length; i++ ) {
+				hql.append( "or " ).append( whereColumn ).append( " = '" ).append( whereValue[ i ] ).append( "' " ) ;
+			}
+		}
+		
+		int result = session.createQuery( hql.toString() ).executeUpdate() ;
+		
+		return result ;
+	}
+
 	
 }
