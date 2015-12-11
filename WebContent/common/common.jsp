@@ -40,6 +40,9 @@
 <!-- 常规常量constants.css -->
 <link rel="stylesheet" href="common/style/constants.css">
 
+<!-- uploadify上传 -->
+<link rel="stylesheet" type="text/css" href="common/uploadify/uploadify.css">
+
 <!-- js 常量 -->
 <script src="common/script/constants.js"></script>
 
@@ -83,6 +86,8 @@
 <!-- 用于 parameter 的方法 -->
 <script src="common/script/parameter/parameter.js"></script>
 
+<!-- uploadify上传 -->
+<script src="common/uploadify/jquery.uploadify.js"></script>
 
 <script type="text/javascript">
 		

@@ -31,7 +31,7 @@ public class UserAction extends ActionUtil {
 	private User user ;
 	private List< User > userList ;
 	private List< String > hobby ;
-
+	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
 	 * */
@@ -95,6 +95,7 @@ public class UserAction extends ActionUtil {
 		
 		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
 	}
+	
 	
 	//验证用户名是否存在
 	@SuppressWarnings("unchecked")
@@ -163,5 +164,6 @@ public class UserAction extends ActionUtil {
 	public void setHobby(List<String> hobby) {
 		this.hobby = hobby;
 	}
+	
 
 }

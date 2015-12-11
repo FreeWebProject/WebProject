@@ -304,7 +304,7 @@ html, body, .container-fluid {
 			<div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="headingThree">
 					<h4 class="panel-title">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">artDialog </a>
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">uploadify </a>
 					</h4>
 				</div>
 			</div>
@@ -312,7 +312,7 @@ html, body, .container-fluid {
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
 						<li role="presentation">
-							<a href="prototype/user/testDialog.jsp">art.Dialog</a>
+							<a href="prototype/bootstrap_table/user_editInfo.jsp">uploadify</a>
 						</li>
 					</ul>
 				</div>
