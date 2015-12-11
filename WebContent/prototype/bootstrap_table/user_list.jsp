@@ -43,8 +43,26 @@
 		ad_open( "prototype/bootstrap_table/user_add.jsp", "新建用户", "770", "250" ) ;
 	}
 	
-	
+	// 删除选定的
+	function user_delete() {
+		var idArray = $.map( bt_getSelections( "btTable" ), function( row ) {
+			return row.id ;
+		} )
 		
+		ajax_callText( "user/deleteMore.action", idArray.toString(), function( data ) {
+			bt_removeRow( "btTable", "id", idArray ) ;
+			ad_alert( "成功删除" + data + "条数据。" ) ;
+		} ) ;
+	}
+	
+	$( function() {
+		
+		$( "#btTable" ).on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
+	        $( "#delete" ).prop('disabled', !$( "#btTable" ).bootstrapTable('getSelections').length);
+	    });
+		
+	} ) ;
+	
 </script>
 </head>
 <body>
@@ -53,7 +71,7 @@
 			<button type="button" class="btn btn-default" title="新建" onclick="user_add() ;">
 				<i class="glyphicon glyphicon-plus"></i>
 			</button>
-			<button type="button" class="btn btn-danger" title="删除">
+			<button id="delete" type="button" class="btn btn-danger" title="删除" disabled onclick="user_delete() ;">
 				<i class="glyphicon glyphicon-trash"></i>
 			</button> 
 		</div>

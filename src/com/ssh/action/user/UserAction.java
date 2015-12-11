@@ -78,6 +78,19 @@ public class UserAction extends ActionUtil {
 		hibernateUtil.delete( user ) ;
 	}
 	
+	// 删除多个
+	@Action(
+		value = "deleteMore",
+		results = { @Result( type = "json" ) }
+	)
+	public void deleteMore() {
+		String[] idArray = ajaxData.split( "," ) ;
+		
+		int result = hibernateUtil.delete( new User(), "id", idArray ) ;
+		
+		ResponseUtil.sendMsgToPage( result + "" ) ;
+	}
+	
 	// 保存或更新 ajax
 	@Action(
 		value = "saveOrUpdateByAjax",
