@@ -52,8 +52,8 @@
     			<div class="col-xs-4">
     				<s:radio list="#{'0':'男','1':'女' }" name="user.sex"/>
     			</div>
-    			<label class="col-md-2 control-label">生日</label>
-    			<div class="input-group col-md-3 date form_date"> 
+    			<label class="col-xs-2 control-label">生日</label>
+    			<div class="pl15 pr15 input-group col-xs-4 date form_date"> 
     				<s:textfield cssClass="validate[required, length[0,32]] form-control" name="user.birthday" />
     				<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
     				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -88,7 +88,6 @@
 		</div>
 		<div class="navbar-fixed-bottom mb10">
   			<div class="container-fluid text-center">
-  				<button class="btn btn-primary" id="ajaxTest" type="button">ajaxFormValidatorTest</button>
   				<button class="btn btn-primary" type="button" onclick="save( 'save' ) ;">保存</button>
   				<button class="btn btn-primary" type="button" onclick="save( 'saveAndClose' ) ;">保存并关闭</button>
   				<button class="btn btn-default" type="button" onclick="ad_close() ;">关闭</button>
