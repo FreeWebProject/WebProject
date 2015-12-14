@@ -20,8 +20,9 @@
 				'multi' : false,    				//允许多个文件同时上传 
 			 	'swf' : "/WebProject/common/uploadify/uploadify.swf",
 			 	'onUploadStart' : function( file ){
+			 			
 			 			var data = {
-			 					"name" : $("[name='user.file']").val() 
+			 					"name" : $("[name='user.file']").val(),
 			 			} ;
 			 			$("#upload1").uploadify("settings","formData",{ "json" : JSON.stringify( data ) } ) ;
 			 	} 
