@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.ssh.model.User;
 import com.ssh.util.ActionUtil;
+import com.ssh.util.MD5Util;
 import com.ssh.util.ResponseUtil;
 
 import net.sf.json.JSONObject;
@@ -40,7 +41,8 @@ public class UserAction extends ActionUtil {
 		value = "regist",
 		results = { @Result( name = "success", location = "/index.jsp" ), @Result( name = "error", location = "/error.jsp" ) }
 	)
-	public String saveOrUpdate() {
+	public String saveOrUpdate() throws Exception {
+		user.setPassword( MD5Util.md5Encode(user.getPassword()) );
 		hibernateUtil.saveOrUpdate( user ) ;
 		
 		return SUCCESS ;

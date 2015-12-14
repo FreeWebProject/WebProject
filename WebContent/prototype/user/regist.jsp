@@ -32,7 +32,8 @@
 			<div class="form-group has-feedback input-lg">
 				<label class="col-md-5 control-label"><span style="color: red">*</span>用户名：</label>
 				<div class="col-md-3">
-					<s:textfield cssClass="validate[required,custom[noSpecialCaracters],length[0,20]]  input-lg form-control" onblur="verifyUsername() ;" placeholder="请输入用户名" name="user.name" />
+					<!-- custom[noSpecialCaracters], -->
+					<s:textfield cssClass="validate[required,length[0,20]]  input-lg form-control" onblur="verifyUsername() ;" placeholder="请输入用户名" name="user.name" />
 				</div>
 				<div class="col-md-4">
 					<span style="color:red ; display:none ;" id="success">用户名可用</span>
