@@ -63,64 +63,14 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<!-- 延长action中属性的生命周期 -->
-	<!-- 
-	<filter>
-		<filter-name>struts-cleanup</filter-name>
-		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>struts-cleanup</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	 -->
-	 
-	 <filter>
-	     <filter-name>ueditorFilter</filter-name>
-	     <filter-class>
-	         com.ssh.util.UeditorFilter
-	     </filter-class>
-	 </filter>
-	 <filter-mapping>
-	     <filter-name>ueditorFilter</filter-name>
-	     <url-pattern>*.jsp</url-pattern>
-	 </filter-mapping>
-	
-	 <filter>
-		<filter-name>struts-prepare</filter-name>
-		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>struts-prepare</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<filter>
-		<filter-name>struts-execute</filter-name>
-		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsExecuteFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>struts-execute</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
-	<!-- Struts2 Filter -->
     <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-        <init-param>
-        	<param-name>config</param-name>
-        	<param-value>struts-default.xml,struts-plugin.xml,struts.xml</param-value>
-        </init-param>
-        <init-param>
-        	<param-name>actionPackages</param-name>
-        	<param-value>com.ssh.action</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+		 <filter-name>struts2</filter-name>
+		 <filter-class>com.ssh.util.UEditorFilter</filter-class>
+	</filter>
+	 <filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
     
     <!-- 会话时间配置 -->
     <session-config>
