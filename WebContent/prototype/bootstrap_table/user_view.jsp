@@ -76,7 +76,7 @@
     		<div class="form-group">
     			<label class="col-sm-2 control-label">自我介绍</label>
     			<div class="col-sm-10">
-    				<s:property value="user.self" />
+    				<s:property value="user.self" escape="false"/>
     			</div>
     		</div>
 		</div>

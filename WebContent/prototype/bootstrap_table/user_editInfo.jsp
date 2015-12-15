@@ -4,8 +4,13 @@
 <html>
 <head>
 <%@ include file="/common/common.jsp" %>
+<script type="text/javascript" src="common/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="common/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="common/ueditor/lang/zh-cn/zh-cn.js"></script>
 <title>查看页面</title>
 <script type="text/javascript">
+		var ue = UE.getEditor('container') ;
+		var ue1 = UE.getEditor('container1') ;
 		$(function (){
 			$("#upload1").uploadify({
 				'uploader' : "/WebProject/uploadify/uploadify.action", 
@@ -28,6 +33,7 @@
 			 	} 
 			}) ; 
 		}) ;
+		
 	/* function save( mark ){
 		// ajax提交前先进行表单的验证
 		$("form").validationEngine({
@@ -48,8 +54,8 @@
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid mt20" action="view" namespace="/user" method="POST">
-		<s:hidden name="user.id" />
+	<s:form cssClass="container-fluid mt20" action="regist" namespace="/user" method="POST">
+		
   		<div class="form-horizontal">
     		<div class="form-group">
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>用户名</label>
@@ -58,13 +64,13 @@
     			</div>
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>密码</label>
     			<div class="col-md-4">
-    				<s:textfield cssClass="validate[required, length[6,11] form-control" name="user.password"/>
+    				<s:password cssClass="validate[required, length[6,11] form-control" name="user.password"/>
     			</div>
     		</div>
     		<div class="form-group">
     			<label class="col-xs-2 control-label"><span class="text-danger">*</span>性别</label>
     			<div class="col-xs-4">
-    				<s:radio list="#{'0':'男','1':'女' }" name="user.sex"/>
+    				<s:radio list="#{'0':'男','1':'女' }" value="0" name="user.sex"/>
     			</div>
     			<label class="col-md-2 control-label">生日</label>
     			<div class="input-group col-md-3 date form_date"> 
@@ -86,20 +92,22 @@
     		<div class="form-group">
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>联系电话</label>
     			<div class="col-md-4">
-    				<s:textfield cssClass="validate[required, length[0,2]] form-control" name="user.phone"/>
+    				<s:textfield cssClass="validate[required] form-control" name="user.phone"/>
     			</div>
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>邮箱</label>
     			<div class="col-md-4">
-    				<s:textfield cssClass="validate[required,custom[email]] form-control" name="user.email"/>
+    				<s:textfield cssClass="validate[required] form-control" name="user.email"/>
     			</div>
     		</div>
     		<div class="form-group">
     			<label class="col-sm-2 control-label"><span class="text-danger">*</span>自我介绍</label>
     			<div class="col-sm-10">
-    				<s:textarea cssClass="validate[required, length[0,1024]] form-control" name="user.self" cssStyle="height: 100px;"/>
+    				 <script id="container" name="user.self" type="text/plain">
+       					采用longText类型存储
+  	    			</script>
     			</div>
     		</div>
-    		<div class="form-group">
+    		<%-- <div class="form-group">
     			<label class="col-sm-2 control-label">上传附件</label>
     			<div class="col-sm-2">
     				<span class="text-danger">请输入文件名</span>
@@ -109,11 +117,11 @@
 					<a href="javascript: $('#upload1').uploadify('destroy')">清空所有</a>
 					<a href="javascript: $('#upload1').uploadify('upload','*')">上传</a>
     			</div>
-    		</div>
+    		</div> --%>
 		</div>
 		<div class="navbar-fixed-bottom mb10">
   			<div class="container-fluid text-center">
-  				<button class="btn btn-primary" type="button" onclick="save( 'save' ) ;">保存</button>
+  				<button class="btn btn-primary" type="submit">保存</button>
 		  	</div>
   		</div>
 	</s:form>
