@@ -1,6 +1,7 @@
 package com.ssh.model;
 
 import java.sql.Blob;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +30,7 @@ public class User {
 	private String phone ;
 	private String self ;
 	private String sex ;
+	private String dateType ;
 	
 	@Column( name = "age", length = 32 )
 	public String getAge() {
@@ -58,7 +60,7 @@ public class User {
 	/*
 	 * @Id --- hibernate注解，表名这个一个主键ID
 	 * @GenericGenerator --- hibernate注解，主键生成策略，这里用的uuid
-	 * @Columen --- hibernate注解，表名这是数据库对应的一个字段，并有相关属性
+	 * @Column --- hibernate注解，表名这是数据库对应的一个字段，并有相关属性
 	 * */
 	@Id
 	@GenericGenerator( name = "generator", strategy = "uuid" )
@@ -90,6 +92,11 @@ public class User {
 	@Column( name = "sex", length = 32 )
 	public String getSex() {
 		return sex;
+	}
+	
+	@Column( name = "dateType", length = 32 )
+	public String getDateType() {
+		return dateType;
 	}
 	
 	public void setAge(String age) {
@@ -131,6 +138,11 @@ public class User {
 	}
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+
+	public void setDateType(String dateType) {
+		this.dateType = dateType;
 	}
 	
 }

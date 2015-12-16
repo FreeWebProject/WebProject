@@ -107,6 +107,14 @@
   	    			</script>
     			</div>
     		</div>
+    		<div class="form-group">
+    			<label class="col-md-2 control-label">date类型</label>
+    			<div class="input-group col-md-3 date form_date"> 
+    				<s:textfield cssClass="validate[required, length[0,32]] form-control" name="user.dateType" />
+    				<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+    				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    			</div>
+    		</div>
     		<%-- <div class="form-group">
     			<label class="col-sm-2 control-label">上传附件</label>
     			<div class="col-sm-2">

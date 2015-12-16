@@ -1,6 +1,9 @@
 package com.ssh.dao.impl;
 
+import java.util.Iterator;
 import java.util.List;
+
+import net.sf.json.JSONArray;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ssh.dao.HibernateUtil;
-
-import net.sf.json.JSONArray;
+import com.ssh.model.User;
 
 /**
  * 数据库简单操作的工具类
@@ -57,6 +59,16 @@ public class HibernateUtilImpl implements HibernateUtil {
 		String hql = "from " + entity.getClass().getName() ;
 		
 		List<?> result = session.createQuery( hql ).list() ;
+		
+/*		System.out.println(result.get(0).toString());
+		for(int i=0; i<result.size(); i++ ){
+			List<?> userList = (List<?>) result.get(i) ;
+			System.out.println(userList);
+			
+			 for(int j=0; j<userList.size(); j++) {
+				    String b = userList. ;
+				    }
+		}*/
 		
 		return result;
 	}

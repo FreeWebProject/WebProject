@@ -31,7 +31,8 @@ function ad_alert( content, width, height ) {
 	art.dialog( {
 		"width": width,
 		"height": height,
-		"content": content
+		"content": content,
+		"time": 3
 	} ) ;
 }
 

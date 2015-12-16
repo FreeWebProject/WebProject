@@ -12,7 +12,6 @@ import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
 		public void doFilter(ServletRequest req, ServletResponse res,FilterChain chain) throws IOException, ServletException {
 			HttpServletRequest request = (HttpServletRequest) req;
 			String url = request.getRequestURI();
-			System.out.println(url);
 			if (url.contains("/jsp/")) {
 				chain.doFilter(req, res);
 			}else{

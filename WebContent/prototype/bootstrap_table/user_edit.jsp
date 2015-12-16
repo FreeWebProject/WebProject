@@ -54,7 +54,7 @@
     			</div>
     			<label class="col-xs-2 control-label">生日</label>
     			<div class="pl15 pr15 input-group col-xs-4 date form_date"> 
-    				<s:textfield cssClass="validate[required, length[0,32]] form-control" name="user.birthday" />
+    				<s:textfield cssClass="validate[required, length[0,32]] form-control" name="user.dateType" />
     				<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
     				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     			</div>
@@ -72,11 +72,11 @@
     		<div class="form-group">
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>联系电话</label>
     			<div class="col-md-4">
-    				<s:textfield cssClass="validate[required, length[0,2]] form-control" name="user.phone"/>
+    				<s:textfield cssClass="validate[required] form-control" name="user.phone"/>
     			</div>
     			<label class="col-md-2 control-label"><span class="text-danger">*</span>邮箱</label>
     			<div class="col-md-4">
-    				<s:textfield cssClass="validate[required,custom[email]] form-control" name="user.email"/>
+    				<s:textfield cssClass="validate[required] form-control" name="user.email"/>
     			</div>
     		</div>
     		<div class="form-group">

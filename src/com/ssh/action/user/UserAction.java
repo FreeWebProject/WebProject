@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.ssh.model.User;
+import com.ssh.model.UserAnduserType;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.MD5Util;
 import com.ssh.util.ResponseUtil;
@@ -32,6 +33,7 @@ public class UserAction extends ActionUtil {
 	private User user ;
 	private List< User > userList ;
 	private List< String > hobby ;
+	private UserAnduserType userAnduserType ;
 	
 	/*
 	 * @Action --- struts2注解,在方法上加@Action注解,表明这是一个action,并用@Result表明返回结果
@@ -66,6 +68,8 @@ public class UserAction extends ActionUtil {
 		results = { @Result( type = "json" ) }
 	)
 	public void queryAllReturnJson() {
+		List<?> list = hibernateUtil.queryAllReturnJson( new User() ) ;
+		String result = list.toString() ;
 		ResponseUtil.sendMsgToPage( hibernateUtil.queryAllReturnJson( new User() ).toString() ) ;
 	}
 	
@@ -156,6 +160,32 @@ public class UserAction extends ActionUtil {
 		return SUCCESS ;
 	}
 	
+	
+	//设定用户角色
+	@Action(
+			value = "manage",
+			results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_manage.jsp")}
+			)
+	public String manage(){
+		
+		 return SUCCESS ;
+	}
+	
+	
+	//保存设定的角色
+	@Action(
+		value = "xxxxx"
+	)
+	public void userType(){
+		
+		System.out.println(userAnduserType.getTypeId() ) ;
+		System.out.println(userAnduserType.getUserId() ) ;
+		
+		hibernateUtil.saveOrUpdate( userAnduserType ) ;
+	}
+	
+	
+	
 	public User getUser() {
 		return user;
 	}
@@ -178,6 +208,14 @@ public class UserAction extends ActionUtil {
 
 	public void setHobby(List<String> hobby) {
 		this.hobby = hobby;
+	}
+
+	public UserAnduserType getUserAnduserType() {
+		return userAnduserType;
+	}
+
+	public void setUserAnduserType(UserAnduserType userAnduserType) {
+		this.userAnduserType = userAnduserType;
 	}
 	
 

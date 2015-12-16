@@ -33,7 +33,7 @@
     			</div>
     			<label class="col-md-2 control-label">生日</label>
     			<div class="col-md-4">
-    				<s:property value="user.birthday" />
+    				<s:property value="user.dateType" />
     			</div>
     		</div>
     		<div class="form-group">

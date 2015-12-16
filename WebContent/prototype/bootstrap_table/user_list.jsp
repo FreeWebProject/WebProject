@@ -17,7 +17,11 @@
 	        '</a>',
 	        '<a class="remove ml10" href="javascript:void(0)" title="删除">',
 	        '<i class="glyphicon glyphicon-remove"></i>',
+	        '</a>',
+	        '<a class="manage ml10" href="javascript:void(0)" title="管理">',
+	        '<i class="glyphicon glyphicon-cog"></i>',
 	        '</a>'
+	        
 	    ].join('');
 	}
 	
@@ -35,7 +39,10 @@
 		        	ad_alert( DELETE_SUCCESS ) ;
 		        } ) ;
     		} ) ;
-	    }
+	    },
+	    'click .manage': function (e, value, row, index) {
+	    	ad_open( "user/manage.action?userAnduserType.userId=" + value, "设定用户角色" ,"1000", "400" ) ;
+	    },
 	};
 	
 	// 新建
