@@ -9,26 +9,10 @@
 
 	
 	function save( mark ){
-		alert( mark ) ;
-		$.ajax( {
-			url: "user/xxxxx.action",
-			type: "post",
-			dataType: "text",
-			data: { "ajaxData": getJson( "userAnduserType" ) },
-			success: function(data){
-				if( mark == "saveAndClose"){
-					ad_close() ;
-				}else{
-					ad_alert( SAVE_SUCCESS ) ;
-				} 
-			},
-			error: function(data){
-			} 
-		} ) ;
 		// ajax提交前先进行表单的验证
 		$("form").validationEngine({
 			success : function() {
-			 		ajax_callText("user/xxxxx.action", getJson( "userAnduserType" ), function(data){
+			 		ajax_callText("user/userType.action", getJson( "userAnduserType" ), function(data){
 					if( mark == "saveAndClose"){
 						ad_close() ;
 					}else{
@@ -37,15 +21,15 @@
 				}) ;
 			} ,
 			ajax: true
-		})
+		}) ;
 	}
 	
 </script>
 </head>
 <body>
-	<s:form cssClass="container-fluid mt20" action="xxxxx" namespace="/user" method="POST">
+	<s:form cssClass="container-fluid mt20" action="userType" namespace="/user" method="POST">
 		<s:hidden name="userAnduserType.userId" />
-		<s:property value="userAnduserType.userId" />
+		<s:hidden name="userAnduserType.id" />
   		<div class="form-horizontal">
   			<h1 class="text-center">设定用户角色</h1>
     		<div class="form-group">
@@ -58,7 +42,6 @@
 		<div class="navbar-fixed-bottom mb10">
   			<div class="container-fluid text-center">
   				<button class="btn btn-primary" type="button" onclick="save( 'save' ) ;">保存</button>
-  				<button class="btn btn-primary" type="button" onclick="save( 'saveAndClose' ) ;">保存并关闭</button>
   				<button class="btn btn-default" type="button" onclick="ad_close() ;">关闭</button>
 		  	</div>
   		</div>

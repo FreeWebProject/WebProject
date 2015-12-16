@@ -3,6 +3,8 @@ package com.ssh.action.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.json.JSONObject;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -15,8 +17,6 @@ import com.ssh.model.UserAnduserType;
 import com.ssh.util.ActionUtil;
 import com.ssh.util.MD5Util;
 import com.ssh.util.ResponseUtil;
-
-import net.sf.json.JSONObject;
 
 /*
  * @Component --- spring注解，将这个类交给spring来管理  value 为他的名字
@@ -166,22 +166,28 @@ public class UserAction extends ActionUtil {
 			value = "manage",
 			results = { @Result( name = "success", location = "/prototype/bootstrap_table/user_manage.jsp")}
 			)
-	public String manage(){
-		
-		 return SUCCESS ;
+	public String manage()  {
+		List<?> userAnduserType1 = hibernateUtil.queryWithOneWhere( new UserAnduserType(), "userId", userAnduserType.getUserId() ) ;
+		if( userAnduserType1.size() != 0 ){
+			userAnduserType = (UserAnduserType) userAnduserType1.get( 0 )  ;
+		}
+		return SUCCESS ;
 	}
 	
 	
 	//保存设定的角色
 	@Action(
-		value = "xxxxx"
+			value = "userType",
+			results = { @Result( type = "json") }
 	)
 	public void userType(){
 		
-		System.out.println(userAnduserType.getTypeId() ) ;
-		System.out.println(userAnduserType.getUserId() ) ;
-		
-		hibernateUtil.saveOrUpdate( userAnduserType ) ;
+		 userAnduserType = (UserAnduserType) JSONObject.toBean( JSONObject.fromObject( ajaxData ), UserAnduserType.class ) ;
+		if( "".equals( userAnduserType.getId() ) ){
+			 userAnduserType.setId( null );
+		 }
+		  hibernateUtil.saveOrUpdate( userAnduserType ) ;
+	
 	}
 	
 	
