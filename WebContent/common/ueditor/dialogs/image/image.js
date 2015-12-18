@@ -908,7 +908,6 @@
                         }
                     })(img));
                     img.width = 113;
-                    list[ i ].url = list[ i ].url.substring( list[ i ].url.indexOf( urlPrefix ) + urlPrefix.length ) ;
                     img.setAttribute('src', urlPrefix + list[i].url + (list[i].url.indexOf('?') == -1 ? '?noCache=':'&noCache=') + (+new Date()).toString(36) );
                     img.setAttribute('_src', urlPrefix + list[i].url);
                     domUtils.addClass(icon, 'icon');

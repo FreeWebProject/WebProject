@@ -91,6 +91,9 @@ html, body, .container-fluid {
 							<a href="prototype/bootstrap_table/user_list.jsp">用户列表（by-bt）</a>
 						</li>
 						<li role="presentation">
+							<a href="prototype/bootstrap_table/user_roleList.jsp">角色设定</a>
+						</li>
+						<li role="presentation">
 						
 							<!-- bootstrapTableExamples -->
 							<div class="panel-group" id="bootstrapTableExamples" role="tablist" aria-multiselectable="false">

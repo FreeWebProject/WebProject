@@ -20,7 +20,7 @@ public class UserAnduserType {
 	private String id ;
 	private String userId ;   //用户id
 	private String typeId ;	  //类型id
-	private String type ;	  //用户类型
+	private String username ;	  //用户名
 	
 	
 	/**
@@ -45,10 +45,11 @@ public class UserAnduserType {
 		return typeId;
 	}
 	
-	@Column( name = "type", length = 32)
-	public String getType() {
-		return type;
+	@Column( name = "username", length = 32)
+	public String getUsername() {
+		return username;
 	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -58,8 +59,10 @@ public class UserAnduserType {
 	public void setTypeId(String typeId) {
 		this.typeId = typeId;
 	}
-	public void setType(String type) {
-		this.type = type;
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	
