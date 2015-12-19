@@ -41,7 +41,7 @@
 			return row.id ;
 		} )
 		
-		ajax_callText( "user/deleteMore.action", idArray.toString(), function( data ) {
+		ajax_callText( "userManager/deleteMore.action", idArray.toString(), function( data ) {
 			bt_removeRow( "btTable", "id", idArray ) ;
 			ad_alert( "成功删除" + data + "条数据。" ) ;
 		} ) ;

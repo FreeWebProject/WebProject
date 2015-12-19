@@ -11,6 +11,8 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +39,9 @@ public class UserManageAction extends ActionUtil {
 	private UserAnduserType userAnduserType ;
 	static String typeId ;
 	static int count ;
-	
+	private SessionFactory sessionFactory ;
+	private Session session ;
+
 
 
 	@Action(
@@ -79,8 +83,61 @@ public class UserManageAction extends ActionUtil {
 		hibernateUtil.delete( userAnduserType );
 	}
 	
-	
 	@Action(
+			value = "deleteMore",
+			results = { @Result( type = "json")}
+			)
+	public void deleteMore(){
+		String[] idArray = ajaxData.split( "," ) ;
+		int result = hibernateUtil.delete( new UserAnduserType(), "id", idArray ) ;
+		ResponseUtil.sendMsgToPage( result + "" ) ;
+	}
+	
+	
+
+	//第一套方案:添加用户到某个角色中时，查询出来的都是不存在该角色列表中的用户，直接添加
+	@Action(
+			value = "manageUser",
+			results = { @Result( type = "json") }
+			)
+		public void manageUser(){
+		
+		session = sessionFactory.getCurrentSession() ;
+		StringBuffer sql = new StringBuffer() ;
+		sql.append( " select " ) ;
+		sql.append( " * from user u " ) ;
+		sql.append( " where " ) ;
+		sql.append( " u.name not in " ) ;
+		sql.append( "(" ) ;
+		sql.append( " select u.name from user u left join userAnduserType ut on u.name=ut.username where ut.typeId=" + typeId ) ;
+		sql.append( ")" ) ;
+		
+		List<?> result = session.createSQLQuery( sql.toString() ).addEntity(User.class).list() ;
+		
+		JSONArray jsonArray = JSONArray.fromObject( result ) ;
+		ResponseUtil.sendMsgToPage( jsonArray.toString() ) ;
+	}
+	
+	//第一套方案
+	@Action(
+		value = "addUser",
+		results = { @Result( type = "json")}
+			)
+	public void addUser(){
+		JSONArray jsonArray = JSONArray.fromObject( ajaxData ) ;
+		for(int i=0; i<jsonArray.size();i++){
+			JSONObject jsonObj = jsonArray.getJSONObject(i) ;
+			userAnduserType = new UserAnduserType() ;
+			userAnduserType.setTypeId( typeId );
+			userAnduserType.setUserId( jsonObj.get("id").toString() );
+			userAnduserType.setUsername( jsonObj.get("name").toString() );
+			hibernateUtil.saveOrUpdate(userAnduserType) ;
+		}
+	}
+	
+	
+	//第二套方案:查询出来的是所有用户，根据需要进行添加，自动过滤已经存在的用户
+	/*	@Action(
 			value = "manageUser",
 			results = { @Result( type = "json") }
 			)
@@ -89,7 +146,11 @@ public class UserManageAction extends ActionUtil {
 		ResponseUtil.sendMsgToPage(hibernateUtil.queryAllReturnJson( new User() ).toString() ) ;
 	}
 	
-	@Action(
+	
+	 */
+	
+	//第二套方案
+	/*@Action(
 			value = "addUser",
 			results = { @Result( type = "json")}
 			)
@@ -120,11 +181,11 @@ public class UserManageAction extends ActionUtil {
 							hibernateUtil.saveOrUpdate(userAnduserType) ;
 						}
 				}else {
-				userAnduserType = new UserAnduserType() ;
-				userAnduserType.setTypeId( typeId );
-				userAnduserType.setUserId( jsonObj.get("id").toString() );
-				userAnduserType.setUsername( jsonObj.get("name").toString() );
-				hibernateUtil.saveOrUpdate(userAnduserType) ;
+					userAnduserType = new UserAnduserType()  ;
+					userAnduserType.setTypeId( typeId );
+					userAnduserType.setUserId( jsonObj.get("id").toString() );
+					userAnduserType.setUsername( jsonObj.get("name").toString() );
+					hibernateUtil.saveOrUpdate(userAnduserType) ;
 			}
 				
 			}
@@ -134,7 +195,9 @@ public class UserManageAction extends ActionUtil {
 		ResponseUtil.sendMsgToPage( jsonArray.size() + "");
 		
 	}
-
+*/
+	
+	
 	public UserAnduserType getUserAnduserType() {
 		return userAnduserType;
 	}
@@ -161,6 +224,21 @@ public class UserManageAction extends ActionUtil {
 	}
 
 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
 
 
 }

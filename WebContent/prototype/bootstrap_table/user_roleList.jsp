@@ -55,80 +55,24 @@
 <body>
 	<s:form cssClass="container-fluid" action="jumpToUserList" namespace="/userManager" method="post">
 		<s:hidden name="userAnduserType.typeId"/>
-		<div id="div1"></div>
-		<div id="toolbar" class="btn-group">
+		<!-- <div id="toolbar" class="btn-group">
 			<button type="button" class="btn btn-default" title="新建" onclick="user_add() ;">
 				<i class="glyphicon glyphicon-plus"></i>
 			</button>
 			<button id="delete" type="button" class="btn btn-danger" title="删除" disabled onclick="user_delete() ;">
 				<i class="glyphicon glyphicon-trash"></i>
 			</button> 
-		</div>
+		</div> -->
 		<table id="btTable" data-toggle="table" data-url="userManager/roleList.action" data-sort-name="name" data-sort-order="asc" data-toolbar="#toolbar" >
 			<thead>
 				<tr>
-					<th data-checkbox="true"></th>
+					<!-- <th data-checkbox="true"></th> -->
 					<th data-formatter="bt_order">#</th>
 					<th data-field="name" data-sortable="true">角色名称</th>
 					<th data-field="id" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
 				</tr>
 			</thead>
 		</table>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<a href="#div1">返回顶部</a>
 	</s:form>
 </body>
 </html>
