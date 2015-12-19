@@ -36,7 +36,10 @@ public class UserManageAction extends ActionUtil {
 	
 	private UserAnduserType userAnduserType ;
 	static String typeId ;
+	static int count ;
 	
+
+
 	@Action(
 			value = "roleList",
 			results = {@Result(type = "json")}
@@ -91,29 +94,42 @@ public class UserManageAction extends ActionUtil {
 			results = { @Result( type = "json")}
 			)
 	public void addUser(){
-		
+		//需要添加的用户列表
 		JSONArray jsonArray = JSONArray.fromObject( ajaxData ) ;
 		if( jsonArray.size() > 0){
+			//添加前，先查询userAnduserType表中是否存在该角色的用户，静态变量typeId代表角色编号，进入某个角色用户列表时已经设定
 			List<?> list = hibernateUtil.queryWithOneWhere( new UserAnduserType(), "typeId", typeId ) ;
-			if(list.size() >0){
-				for(int j=0;j<list.size();j++){
-					userAnduserType = (UserAnduserType) list.get(j) ;
-					for(int i=0; i<jsonArray.size();i++){
-							JSONObject jsonObj = jsonArray.getJSONObject(i) ;
-							
-							if( (userAnduserType.getUsername() == jsonObj.get("name").toString()) && (userAnduserType.getTypeId() == typeId) ){
-								
-							}else {
-								userAnduserType = new UserAnduserType() ;
-								userAnduserType.setTypeId( typeId );
-								userAnduserType.setUserId( jsonObj.get("id").toString() );
-								userAnduserType.setUsername( jsonObj.get("name").toString() );
-								hibernateUtil.saveOrUpdate(userAnduserType) ;
-							}
+			//双重循环，外层是循环需要添加的用户，内层是已经存在userAnduserType表中的用户，外层逐一核对内层，查询是否存在
+			for(int i=0; i<jsonArray.size();i++){
+				JSONObject jsonObj = jsonArray.getJSONObject(i) ;
+				//判断userAnduserType表是否为空，为空则直接添加，不为空则进行查询
+				if(list.size() >0){
+					for(int j=0;j<list.size();j++){
+						userAnduserType = (UserAnduserType) list.get(j) ;
+						//如果userAnduserType表中存在需要添加的用户，则标志count为1，不存在则不标识
+						if( userAnduserType.getUsername().toString().equals(jsonObj.get("name")) ){
+							 count = 1 ;
+						}
 					}
-				}
+						//userAnduserType表中不存在的，在这里添加
+						if(count != 1){
+							userAnduserType = new UserAnduserType() ;
+							userAnduserType.setTypeId( typeId );
+							userAnduserType.setUserId( jsonObj.get("id").toString() );
+							userAnduserType.setUsername( jsonObj.get("name").toString() );
+							hibernateUtil.saveOrUpdate(userAnduserType) ;
+						}
+				}else {
+				userAnduserType = new UserAnduserType() ;
+				userAnduserType.setTypeId( typeId );
+				userAnduserType.setUserId( jsonObj.get("id").toString() );
+				userAnduserType.setUsername( jsonObj.get("name").toString() );
+				hibernateUtil.saveOrUpdate(userAnduserType) ;
+			}
+				
 			}
 		}
+		
 		
 		ResponseUtil.sendMsgToPage( jsonArray.size() + "");
 		
@@ -134,6 +150,17 @@ public class UserManageAction extends ActionUtil {
 	public static void setTypeId(String typeId) {
 		UserManageAction.typeId = typeId;
 	}
+	
+
+	public static int getCount() {
+		return count;
+	}
+
+	public static void setCount(int count) {
+		UserManageAction.count = count;
+	}
+
+
 
 
 }
