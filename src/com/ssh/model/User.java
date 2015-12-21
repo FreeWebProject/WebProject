@@ -31,6 +31,7 @@ public class User {
 	private String self ;
 	private String sex ;
 	private String dateType ;
+	private String state ;   //用户状态：0表示正常使用，1表示已被删除
 	
 	@Column( name = "age", length = 32 )
 	public String getAge() {
@@ -98,6 +99,11 @@ public class User {
 	public String getDateType() {
 		return dateType;
 	}
+
+	@Column( name = "state", length = 32 )
+	public String getState() {
+		return state;
+	}
 	
 	public void setAge(String age) {
 		this.age = age;
@@ -143,6 +149,11 @@ public class User {
 
 	public void setDateType(String dateType) {
 		this.dateType = dateType;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }

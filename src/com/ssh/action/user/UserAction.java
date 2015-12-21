@@ -1,8 +1,10 @@
 package com.ssh.action.user;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -79,9 +81,16 @@ public class UserAction extends ActionUtil {
 		results = { @Result( type = "json" ) }
 	)
 	public void delete() {
-		User user = new User() ;
-		user.setId( ajaxData ) ;
-		hibernateUtil.delete( user ) ;
+		
+		user = (User)hibernateUtil.queryWithOneWhere(new User() ,"id", ajaxData ).get( 0 ) ;
+		
+//		userList = (List<User>) hibernateUtil.queryWithOneWhere(new User(), "id", ajaxData);
+//		JSONArray jsonArray =  JSONArray.fromObject( userList ) ;
+//		JSONObject jsonObject = jsonArray.getJSONObject( 0 ) ;    JSONArray 转换为 JSONObject
+		
+		user.setState( "1" );
+		hibernateUtil.saveOrUpdate( user ) ;
+		
 	}
 	
 	// 删除多个
