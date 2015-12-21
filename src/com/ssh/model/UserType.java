@@ -13,7 +13,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class UserType {
 	private String id ;
 	private String name ;
-	private String value ;
+	private String typeId ;
+	private String state ;
 	
 	/**
 	 *  @GenericGenerator  --  hibernate注解，主键生成策略，这里使用uuid
@@ -32,20 +33,31 @@ public class UserType {
 		return name;
 	}
 	
-	@Column( name = "value" ,length = 32)
-	public String getValue() {
-		return value;
+	@Column( name = "typeId" , length = 32)
+	public String getTypeId() {
+		return typeId;
 	}
 	
+	@Column( name = "state" ,length = 32)
+	public String getState() {
+		return state;
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
 	
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setValue(String value) {
-		this.value = value;
+
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 

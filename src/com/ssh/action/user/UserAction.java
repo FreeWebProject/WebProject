@@ -70,9 +70,8 @@ public class UserAction extends ActionUtil {
 		results = { @Result( type = "json" ) }
 	)
 	public void queryAllReturnJson() {
-		List<?> list = hibernateUtil.queryAllReturnJson( new User() ) ;
-		String result = list.toString() ;
-		ResponseUtil.sendMsgToPage( hibernateUtil.queryAllReturnJson( new User() ).toString() ) ;
+		JSONArray jsonArray = JSONArray.fromObject( hibernateUtil.queryWithOneWhere( new User(), "state", "0" ) );
+		ResponseUtil.sendMsgToPage( jsonArray.toString() ) ;
 	}
 	
 	// 删除
@@ -87,6 +86,7 @@ public class UserAction extends ActionUtil {
 //		userList = (List<User>) hibernateUtil.queryWithOneWhere(new User(), "id", ajaxData);
 //		JSONArray jsonArray =  JSONArray.fromObject( userList ) ;
 //		JSONObject jsonObject = jsonArray.getJSONObject( 0 ) ;    JSONArray 转换为 JSONObject
+		
 		
 		user.setState( "1" );
 		hibernateUtil.saveOrUpdate( user ) ;
@@ -119,6 +119,7 @@ public class UserAction extends ActionUtil {
 		if( hobby != null && "".equals(hobby)){
 			user.setHobby( hobby.toString().substring( 1, hobby.toString().length() - 1 ) );
 		}
+		user.setState("0");
 		user = (User) hibernateUtil.saveOrUpdate( user ) ;
 		
 		ResponseUtil.sendMsgToPage( JSONObject.fromObject( user ).toString() );
