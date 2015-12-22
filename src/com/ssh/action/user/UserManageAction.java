@@ -1,8 +1,11 @@
 package com.ssh.action.user;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -49,7 +52,66 @@ public class UserManageAction extends ActionUtil {
 			results = {@Result(type = "json")}
 			)
 	public void roleList(){
-		ResponseUtil.sendMsgToPage( hibernateUtil.queryAllReturnJson( new UserType() ).toString() ) ;  
+		ResponseUtil.sendMsgToPage( hibernateUtil.queryAllReturnJson( new UserType() ).toString() ) ; 
+		
+	/*	List< Map > children = new ArrayList<Map>() ;
+		
+		for( int i = 1; i < 3; i++ ) {
+			Map<String, String> temp = new HashMap<String, String>() ;
+			temp.put( "id", Integer.toString( i + 1 ) ) ;
+			temp.put( "text", "Children node " + i ) ;
+			
+			children.add( temp ) ;
+		}
+		
+		Map rootMap = new HashMap() ;
+		
+		rootMap.put( "id", "1" ) ;
+		rootMap.put( "text", "Root node" ) ;
+		rootMap.put( "children", children ) ;
+		
+		List rootList = new ArrayList() ;
+		rootList.add( rootMap ) ;
+		
+		JSONArray jsonArray = JSONArray.fromObject( rootList ) ;
+		
+		ResponseUtil.sendMsgToPage( jsonArray.toString() ) ; */
+	}
+	
+	@Action(
+			value = "message",
+			results = {@Result(type = "json")}
+			)
+	public void message(){
+		
+		JSONArray jsonArray = hibernateUtil.queryAllReturnJson( new UserType() ) ;
+		for( int i=0;i<jsonArray.size();i++ ){
+			JSONObject jsonObject = jsonArray.getJSONObject( i ) ;
+			jsonObject.put( "text", jsonObject.get("name") ) ;
+			jsonObject.remove( "name" ) ;
+			jsonObject.remove( "state" ) ;
+			
+			
+			JSONArray childrenArray = JSONArray.fromObject( hibernateUtil.queryWithOneWhere( new UserAnduserType(), "typeId", jsonObject.get("typeId").toString() ) );
+			for( int j=0;j<childrenArray.size();j++ ){
+				JSONObject childrenObject = childrenArray.getJSONObject( j ) ;
+				childrenObject.put("text", childrenObject.get("username")) ;
+				childrenObject.remove( "username" ) ;
+				childrenObject.remove( "userId" ) ;
+				childrenObject.remove("typeId") ;
+			}
+		
+			List<?> children = jsonArray.toList( childrenArray ) ;
+			
+			jsonObject.remove("typeId") ;
+			jsonObject.put("children", children) ;
+		}
+		
+		System.out.println( jsonArray.toString() );
+		
+		ResponseUtil.sendMsgToPage( jsonArray.toString() ) ;
+		
+		
 	}
 	
 	@Action(

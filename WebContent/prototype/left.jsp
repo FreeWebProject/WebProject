@@ -339,6 +339,24 @@ html, body, .container-fluid {
 				</div>
 			</div>
 			
+			<!-- five -->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="jsTreeOne">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#jsTree" aria-expanded="true" aria-controls="jsTree">jsTree</a>
+					</h4>
+				</div>
+			</div>
+			<div id="jsTree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="jsTreeOne">
+				<div class="panel-body">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<a href="prototype/jsTree/index.jsp">jsTree</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </body>
