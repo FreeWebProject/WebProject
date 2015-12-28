@@ -3,7 +3,7 @@ package com.ssh.util;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssh.dao.impl.HibernateUtilImpl;
+import com.ssh.dao.HibernateUtil;
 
 @SuppressWarnings("serial")
 public class ActionUtil extends ActionSupport {
@@ -11,7 +11,7 @@ public class ActionUtil extends ActionSupport {
 	/**
 	 * 执行简单数据库操作的工具类
 	 * */
-	protected HibernateUtilImpl hibernateUtil ;
+	protected HibernateUtil hibernateUtil ;
 	
 	/**
 	 * bootstrap-table所需参数
@@ -26,12 +26,12 @@ public class ActionUtil extends ActionSupport {
 	 * */
 	protected String ajaxData ;
 
-	public HibernateUtilImpl getHibernateUtil() {
+	public HibernateUtil getHibernateUtil() {
 		return hibernateUtil;
 	}
 
 	@Autowired
-	public void setHibernateUtil(HibernateUtilImpl hibernateUtil) {
+	public void setHibernateUtil(HibernateUtil hibernateUtil) {
 		this.hibernateUtil = hibernateUtil;
 	}
 

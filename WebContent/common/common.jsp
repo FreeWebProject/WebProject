@@ -69,6 +69,9 @@
 <!-- datatimepicker 的自定义的方法 -->
 <script src="common/script/datatimerpicker/datatimerpicker.js"></script>
 
+<!-- layer -->
+<script src="common/layer/layer.js"></script>
+
 <!-- argDialog -->
 <script src="common/artDialog/artDialog.source.js"></script>
 <script src="common/artDialog/plugins/iframeTools.source.js"></script>

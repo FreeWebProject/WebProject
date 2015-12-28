@@ -357,6 +357,24 @@ html, body, .container-fluid {
 				</div>
 			</div>
 			
+			<!-- layer -->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="layerMenu">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#layer" aria-expanded="true" aria-controls="layer"> Layer </a>
+					</h4>
+				</div>
+			</div>
+			<div id="layer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="layerMenu">
+				<div class="panel-body">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<a href="prototype/layer/start.jsp">start</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </body>
