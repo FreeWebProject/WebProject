@@ -72,6 +72,9 @@
 <!-- layer -->
 <script src="common/layer/layer.js"></script>
 
+<!-- 弹出层js -->
+<script src="common/script/popup/popup.js" />
+
 <!-- argDialog -->
 <script src="common/artDialog/artDialog.source.js"></script>
 <script src="common/artDialog/plugins/iframeTools.source.js"></script>
