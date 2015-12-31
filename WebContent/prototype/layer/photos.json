@@ -1,0 +1,13 @@
+{
+    "title": "car", //相册标题
+    "id": 123, //相册id
+    "start": 0, //初始显示的图片序号，默认0
+    "data": [   //相册包含的图片，数组格式
+        {
+            "alt": "car1",
+            "pid": 666, //图片id
+            "src": "http://p3.so.qhimg.com/t014464a520def733e3.jpg", //原图地址
+            "thumb": "http://p3.so.qhimg.com/t014464a520def733e3.jpg" //缩略图地址
+        }
+    ]
+}
