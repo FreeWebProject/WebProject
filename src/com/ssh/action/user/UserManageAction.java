@@ -47,7 +47,7 @@ public class UserManageAction extends ActionUtil {
 	static int count ;
 	private SessionFactory sessionFactory ;
 	private Session session ;
-
+	private String temp ;
 
 
 	@Action(
@@ -164,8 +164,21 @@ public class UserManageAction extends ActionUtil {
 			"redirect": ""
 		}
 		*/
-		
-		JSONArray jsonArray = hibernateUtil.queryAllReturnJson( new UserType() ) ;
+		 JSONArray jsonArray = new JSONArray() ;
+		 
+		 if( temp.endsWith("1") ){
+			 jsonArray = hibernateUtil.queryAllReturnJson( new UserType() ) ;
+		 } else if( temp.endsWith("2") ){
+				for( int i=0; i<9; i++ ){
+					JSONObject json = new JSONObject() ;
+					json.put("id", i) ;
+					json.put("name", "asura"+i) ;
+					json.put("time", i + 20) ;
+					
+					jsonArray.add( i, json );
+				}
+		 }
+		 
 		JSONObject result = new JSONObject() ;
 		result.put("value", jsonArray) ;
 		result.put("code", "200") ;
@@ -321,7 +334,6 @@ public class UserManageAction extends ActionUtil {
 	}
 */
 	
-	
 	public UserAnduserType getUserAnduserType() {
 		return userAnduserType;
 	}
@@ -362,6 +374,14 @@ public class UserManageAction extends ActionUtil {
 
 	public void setSession(Session session) {
 		this.session = session;
+	}
+
+	public String getTemp() {
+		return temp;
+	}
+
+	public void setTemp(String temp) {
+		this.temp = temp;
 	}
 
 
