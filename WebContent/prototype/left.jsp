@@ -375,6 +375,24 @@ html, body, .container-fluid {
 				</div>
 			</div>
 			
+			<!-- combox -->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="combox">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#comboxMenu" aria-expanded="true" aria-controls="combox"> Combox </a>
+					</h4>
+				</div>
+			</div>
+			<div id="comboxMenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="combox">
+				<div class="panel-body">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<a href="prototype/combox/index.jsp">index</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </body>

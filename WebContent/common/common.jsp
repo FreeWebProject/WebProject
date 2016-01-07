@@ -43,6 +43,11 @@
 <!-- uploadify上传 -->
 <link rel="stylesheet" type="text/css" href="common/uploadify/uploadify.css">
 
+<!-- combox 搜索自动补全  -->
+<link href="common/combox/css/font-awesome.min.css" rel="stylesheet">
+<link href="common/combox/css/animate.min.css" rel="stylesheet">
+
+
 <!-- js 常量 -->
 <script src="common/script/constants.js"></script>
 
@@ -66,6 +71,10 @@
 <script type="text/javascript" src="common/datetimerpicker/js/bootstrap-datetimepicker.js" ></script>
 <script type="text/javascript" src="common/datetimerpicker/js/locales/bootstrap-datetimepicker.zh-CN.js" ></script>
 
+<!-- combox 搜索自动补全 -->
+<script src="common/combox/js/content.min.js"></script>
+<script src="common/combox/js/bootstrap-suggest.min.js"></script>
+
 <!-- datatimepicker 的自定义的方法 -->
 <script src="common/script/datatimerpicker/datatimerpicker.js"></script>
 
@@ -73,7 +82,7 @@
 <script src="common/layer/layer.js"></script>
 
 <!-- 弹出层js -->
-<script src="common/script/popup/popup.js" />
+<script src="common/script/popup/popup.js"></script>
 
 <!-- argDialog -->
 <script src="common/artDialog/artDialog.source.js"></script>
@@ -96,3 +105,6 @@
 
 <!-- uploadify上传 -->
 <script src="common/uploadify/jquery.uploadify.js"></script>
+
+<!-- combox 自定义方法 -->
+<script src="common/script/combox/combox.js"></script>

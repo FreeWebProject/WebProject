@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -111,8 +114,67 @@ public class UserManageAction extends ActionUtil {
 		
 		ResponseUtil.sendMsgToPage( jsonArray.toString() ) ;
 		
-		
 	}
+	
+	//用于测试combox搜索自动补全，通过action获取数据功能
+	@Action(
+			value = "testForCombox",
+			results = {@Result(type = "json")}
+			)
+	public void testForCombox(){
+		
+		//制造数据
+/*		JSONArray jsonArray = new JSONArray() ;
+		for( int i=0; i<9; i++){
+			
+			JSONObject json = new JSONObject() ;
+			json.put("id", i) ;
+			json.put("name", "asura"+i) ;
+			json.put("time", i + 20) ;
+			
+			jsonArray.add( i, json );
+		}
+		
+		JSONObject result = new JSONObject() ;
+		result.put("value", jsonArray) ;
+		result.put("code", "200") ;
+		result.put("redirect", "") ;
+		result.put("message", "") ;*/
+		
+		
+/*		从数据库读取数据,返回到前台页面的数据格式如下
+ * 		{
+			"message": "",
+			"value": [
+				 {
+					"userName": "胡运燕",
+					"shortAccount": "yunyan",
+					"userId": 20007
+				}, {
+					"userName": "旷东林",
+					"shortAccount": "kuangdonglin",
+					"userId": 20010
+				}, {
+					"userName": "唐宏禹",
+					"shortAccount": "tanghongyu",
+					"userId": 20011
+				}
+			],
+			"code": 200,
+			"redirect": ""
+		}
+		*/
+		
+		JSONArray jsonArray = hibernateUtil.queryAllReturnJson( new UserType() ) ;
+		JSONObject result = new JSONObject() ;
+		result.put("value", jsonArray) ;
+		result.put("code", "200") ;
+		result.put("redirect", "") ;
+		result.put("message", "") ;
+		
+		ResponseUtil.sendMsgToPage( result.toString() ) ;
+	}
+		
 	
 	@Action(
 			value = "jumpToUserList",

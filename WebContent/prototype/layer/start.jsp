@@ -7,12 +7,11 @@
 <title>layer start</title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		__config() ;
 	}) ;
 	
 	// 小小提示层
 	function alertMsg() {
-		__alert( "Hello Layer" ) ;
+		popup.alert( "this is alert", ['325px','215px'], 20000, false, function(){} ) ;
 	}
 	
 	// 弹出一个页面层
@@ -82,6 +81,55 @@
 		    });
 		});  
 	}
+	
+	
+	
+	//alert
+	function alert2() {
+	 	popup.alert( "this is alert", ['325px','215px'], 20000, false ) ; 
+	}
+	
+	//msg
+	function msg() {
+		popup.msg( 'this is message', 2000) ;
+	}
+	
+	//confirm
+	function confirm1() {
+		
+		popup.confirm(
+				'您确定要这样做吗?',
+				function() {
+					popup.msg( '您选择：是', 3000) ;
+				},
+				function() {
+					popup.msg( '您选择： 否', 3000) ;
+				},
+				['是','否'] 
+		) ;
+	}
+	
+	//openDom
+	function openDom() {
+		popup.openDom(
+				$('.photo'),
+				false,
+				function() {
+					popup.msg("close") ;
+				},
+				true
+		) ;
+	}
+	
+	//openHtml
+	function openHtml() {
+		 popup.openHtml( 'prototype/layer/test.jsp', '标题', ['380px','500px'], true ) ; 
+	}
+	
+	//tips
+	function tips(){
+		popup.tips('66666','#bt','bottom') ;
+	}
 	 
 </script>
 </head>
@@ -102,12 +150,25 @@
 		
 	</div>
 	
+	<div class="three" style="margin-top:20px">
+		<button class="btn btn-info" type="button" onclick="alert2() ;">alert</button>
+		<button class="btn btn-info" type="button" onclick="msg() ;">msg</button>
+		<button class="btn btn-info" type="button" onclick="confirm1() ;">confirm</button>
+		<button class="btn btn-info" type="button" onclick="openDom() ;">openDom</button>
+		<button id="parentIframe" class="btn btn-info" type="button" onclick="openHtml() ;">openHtml</button>
+		<button id="bt" class="btn btn-info" type="button" onclick="tips() ;">tips</button>
+		
+	</div>
+	
 	<div id="layer-photos-demo" class="layer-photos-dem" style="margin-top:40px">
 	    <img height="150px" width="200px" layer-src="http://p3.so.qhimg.com/t014464a520def733e3.jpg" src="http://p3.so.qhimg.com/t014464a520def733e3.jpg" alt="图片名">
 	    <img height="150px" width="200px" layer-src="http://p1.so.qhimg.com/t011174413f7e4e1596.jpg" src="http://p1.so.qhimg.com/t011174413f7e4e1596.jpg" alt="图片名">
 	    <img height="150px" width="200px" layer-src="http://p0.so.qhimg.com/t0171223dfdec2f4d20.jpg" src="http://p0.so.qhimg.com/t0171223dfdec2f4d20.jpg" alt="图片名">
 	    <img height="150px" width="200px" layer-src="http://p1.so.qhimg.com/t018371a0173fe6ad26.jpg" src="http://p1.so.qhimg.com/t018371a0173fe6ad26.jpg" alt="图片名">
 	    <img height="150px" width="200px" layer-src="http://p0.so.qhimg.com/t014f41382164d4a2aa.jpg" src="http://p0.so.qhimg.com/t014f41382164d4a2aa.jpg" alt="图片名">
+	</div>
+	<div class="photo">
+		 <img layer-src="http://p3.so.qhimg.com/t014464a520def733e3.jpg" src="http://p3.so.qhimg.com/t014464a520def733e3.jpg" alt="图片名">
 	</div>
 
 </body>
