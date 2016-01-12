@@ -116,6 +116,8 @@ public class UserManageAction extends ActionUtil {
 		
 	}
 	
+	//用于接受前台combox传来的数据
+	
 	//用于测试combox搜索自动补全，通过action获取数据功能
 	@Action(
 			value = "testForCombox",

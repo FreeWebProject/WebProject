@@ -14,7 +14,7 @@
 
     
 $(document).ready(function() {
-var testdataBsSuggest=$("#test_data").bsSuggest({indexId:2,indexKey:1,data:{"value":[{"id":"0","word":"lzw","description":"http://lzw.me"},{"id":"1","word":"lzwme","description":"http://w.lzw.me"},{"id":"2","word":"meizu","description":"http://www.meizu.com"},{"id":"3","word":"flyme","description":"http://flyme.meizu.com"}],"defaults":"http://lzw.me"}});
+var testdataBsSuggest=$("#test_data") .bsSuggest({indexId:2,indexKey:1,data:{"value":[{"id":"0","word":"lzw","description":"http://lzw.me"},{"id":"1","word":"lzwme","description":"http://w.lzw.me"},{"id":"2","word":"meizu","description":"http://www.meizu.com"},{"id":"3","word":"flyme","description":"http://flyme.meizu.com"}],"defaults":"http://lzw.me"}});
 var baiduBsSuggest=$("#baidu").bsSuggest({allowNoKeyword:false,multiWord:true,separator:",",getDataMethod:"url",url:"http://unionsug.baidu.com/su?p=3&t="+(new Date()).getTime()+"&wd=",jsonp:"cb",processData:function(c){var b,a,d={value:[]};
 if(!c||!c.s||c.s.length===0){
 	  return false ;
@@ -59,7 +59,7 @@ if(!c||!c.s||c.s.length===0){
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <form action="index_submit" method="get" accept-charset="utf-8" role="form">
+                        <form namespace="/userManager" action="testForm" method="get" accept-charset="utf-8" role="form">
                             <hr>
                             <h3>URL 获取(查询数据库得到数据)</h3>
                             <p>配置了 data-id，非下拉菜单选择输入则背景色警告。</p>

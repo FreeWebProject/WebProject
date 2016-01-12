@@ -389,6 +389,9 @@ html, body, .container-fluid {
 						<li role="presentation">
 							<a href="prototype/combox/index.jsp">index</a>
 						</li>
+						<li role="presentation">
+							<a href="prototype/combox/index2.jsp">index2</a>
+						</li>
 					</ul>
 				</div>
 			</div>
