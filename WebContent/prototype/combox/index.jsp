@@ -6,18 +6,15 @@
 <%@ include file="/common/common.jsp" %>
 <title>layer start</title>
 <link href="common/combox/css/style.min.css" rel="stylesheet">
-
 <script type="text/javascript">
-
-	function testCodeSet( dom ) {
-		
-	    obtainData( dom, "userManager/testForCombox.action","name") ;
+ 
+	function testCodeSet( dom , temp) {
+	    obtainData( dom, "userManager/testForCombox.action?temp=" + temp, "name") ;
 	}
 
     
 $(document).ready(function() {
-
-var testdataBsSuggest=$("#test_data").bsSuggest({indexId:2,indexKey:1,data:{"value":[{"id":"0","word":"lzw","description":"http://lzw.me"},{"id":"1","word":"lzwme","description":"http://w.lzw.me"},{"id":"2","word":"meizu","description":"http://www.meizu.com"},{"id":"3","word":"flyme","description":"http://flyme.meizu.com"}],"defaults":"http://lzw.me"}});
+var testdataBsSuggest=$("#test_data") .bsSuggest({indexId:2,indexKey:1,data:{"value":[{"id":"0","word":"lzw","description":"http://lzw.me"},{"id":"1","word":"lzwme","description":"http://w.lzw.me"},{"id":"2","word":"meizu","description":"http://www.meizu.com"},{"id":"3","word":"flyme","description":"http://flyme.meizu.com"}],"defaults":"http://lzw.me"}});
 var baiduBsSuggest=$("#baidu").bsSuggest({allowNoKeyword:false,multiWord:true,separator:",",getDataMethod:"url",url:"http://unionsug.baidu.com/su?p=3&t="+(new Date()).getTime()+"&wd=",jsonp:"cb",processData:function(c){var b,a,d={value:[]};
 if(!c||!c.s||c.s.length===0){
 	  return false ;
@@ -62,44 +59,42 @@ if(!c||!c.s||c.s.length===0){
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <form action="index_submit" method="get" accept-charset="utf-8" role="form">
+                        <form namespace="/userManager" action="testForm" method="get" accept-charset="utf-8" role="form">
                             <hr>
-                            <h3>测试(URL 获取)</h3>
+                            <h3>URL 获取(查询数据库得到数据)</h3>
                             <p>配置了 data-id，非下拉菜单选择输入则背景色警告。</p>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="input-group" onfocus="testCodeSet( $( this ) ) ;">
-                                        <input type="text" class="form-control" id="test"> <!-- codeSetKey="juese" -->
+                                    <div class="input-group"> 
+                                        <input type="text" onfocus="testCodeSet( $( this ), 1 ) ;" class="form-control" id="test"> <!-- codeSetKey="juese" -->
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             </ul>
                                         </div>
-                                        <!-- /btn-group -->
                                     </div>
                                 </div>
                             </div>
                             <hr>
-                           <%--  <h3>测试(URL 获取)</h3>
-                            <p>不展示下拉菜单按钮。</p>
+                            <h3>URL 2 (自己制造得到数据)</h3>
+                            <p>配置了 data-id，非下拉菜单选择输入则背景色警告。</p>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="testNoBtn">
+                                    <div class="input-group"> 
+                                        <input type="text" onfocus="testCodeSet( $( this ), 2 ) ;" class="form-control" id="test1"> 
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             </ul>
                                         </div>
-                                        <!-- /btn-group -->
                                     </div>
                                 </div>
                             </div>
-                            <hr> --%>
+                            <hr>
                             <h3>测试(json 数据中获取)</h3>
                             <p>默认启用空关键字检索。</p>
                             <div class="row">
@@ -136,24 +131,6 @@ if(!c||!c.s||c.s.length===0){
                                 </div>
                             </div>
                             <hr>
-                           <%--  <h3>淘宝搜索</h3>
-                            <p>支持逗号分隔多关键字</p>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="input-group" style="width: 400px;">
-                                        <input type="text" class="form-control" id="taobao">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            </ul>
-                                        </div>
-                                        <!-- /btn-group -->
-                                    </div>
-                                </div>
-                            </div> --%>
-
                         </form>
                     </div>
                 </div>

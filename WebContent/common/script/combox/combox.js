@@ -14,7 +14,6 @@
 				allowNoKeyword: true,
 				multiWord: true
 				}).on("onDataRequestSuccess",function(event, result){
-						alert('请求成功') ;
 						console.log("onDataRequestSuccess: ",result);
 					}) ;
 	}
