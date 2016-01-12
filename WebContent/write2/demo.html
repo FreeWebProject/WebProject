@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<title>demo</title>
+
+<link rel="stylesheet"href="css/css.css" type="text/css" />
+</head>
+<body>
+<br /><br />
+<center>
+</center>
+<div id="center">
+
+  <div id="logo"></div>
+  <div id="search_main">
+    <div id="pull_down"></div>
+    <form id="dictF" action="http://www.jq-school.com" method="get">
+      <ul class="input_box">
+        <span class="bg_left"></span>
+        <button onMouseOut="this.className='search'" onMouseOver="this.className='search search_hover'" type="submit" class="search" onClick="clickCountIndex(10);"></button>
+        <input class="search_input" name="s" id="s" type="text" maxlength="64" autocomplete="off" onFocus="this.select();" onBlur="$(this).removeClass('input_style_focus');$(this).removeClass('input_style_hover');" onMouseOver="this.focus()" />
+        <div onClick="showFlash('flash/blue_paint.swf');clickCountIndex(9);" class="handwrite" id="showButton"></div>
+      </ul>
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/event.js"></script>
+<script type="text/javascript">
+
+var showButton = document.getElementById('showButton');
+if (is_ie) {
+	showButton.attachEvent("onclick", preventDivClose);
+	document.attachEvent("onclick", divClose);
+} else  {
+	showButton.addEventListener("click", preventDivClose, false);
+	document.addEventListener("click",divClose, false);
+}
+if (window.addEventListener||window.attachEvent)
+{
+	ICB.init();ICIBA.Suggest.Install('s', true, 'dictF', 'pull_down');$('#s').focus();
+	if(document.getElementById("indexads")){
+		document.getElementById("indexads").src = document.getElementById("indexads").getAttribute("ssrc");
+	}else{
+		var flash_foot = document.getElementById("flash_foot").getAttribute("ssrc");
+			var hid = document.getElementById("flash_id").getAttribute("hid");
+		document.getElementById("bottom_ad").innerHTML='<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="960px" height="60px"><param name="movie" value="'+flash_foot+'"><param name="quality" value="high"><param name="wmode" value="opaque" /><embed src="'+flash_foot+'" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="960" height="60" wmode="opaque"></embed></object><a onclick="clickCountIndex(31)" style="position:absolute;width:960px;height:60px;left:0px;top:0px;cursor:pointer;z-index:10;background-color:#fff;filter:alpha(opacity=0);opacity:0;" target="_blank" href="'+hid+'" /></div>';
+		}
+}
+</script>
+</body>
+</html>
