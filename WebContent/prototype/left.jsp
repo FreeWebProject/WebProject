@@ -396,6 +396,27 @@ html, body, .container-fluid {
 				</div>
 			</div>
 			
+			<!-- tab -->
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="tab">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tabMenu" aria-expanded="true" aria-controls="combox"> tab标签 </a>
+					</h4>
+				</div>
+			</div>
+			<div id="tabMenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="tab">
+				<div class="panel-body">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<a href="prototype/tab/index.jsp">index</a>
+						</li>
+						<li role="presentation">
+							<a href="prototype/tab/index2.jsp">index2</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </body>
